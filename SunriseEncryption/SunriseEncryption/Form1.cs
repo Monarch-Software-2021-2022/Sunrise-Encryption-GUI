@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SunriseEncryption.EncryptionMethods;
+using SunriseEncryption.Plugin;
 
 namespace SunriseEncryption
 {
@@ -18,6 +19,8 @@ namespace SunriseEncryption
         {
             InitializeComponent();
             SetupExternalFiles();
+
+            LoadingLabel.Hide();
         }
 
         public void LoadPluginList()
@@ -31,20 +34,20 @@ namespace SunriseEncryption
             PluginListView.Columns.Add("Plugin", 150);
             PluginListView.Columns.Add("Info", 150);
 
-            foreach (var file in Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Plugins")))
+            LoadPlugin.CheckPluginAvailability();
+            InitalizePlugin.Initalize();
+            foreach (string plugin in LoadPlugin.AvailablePlugins)
             {
-                if (file.Contains(".dll"))
-                {
-                    string[] arr = new string[3];
-                    ListViewItem item;
+                string[] arr = new string[3];
+                ListViewItem item;
 
-                    arr[0] = file.Split('\\').Last();
-                    arr[1] = "None";
+                arr[0] = plugin.Split('\\').Last();
+                arr[1] = "None";
 
-                    item = new ListViewItem(arr);
-                    PluginListView.Items.Add(item);
-                }
+                item = new ListViewItem(arr);
+                PluginListView.Items.Add(item);
             }
+
         }
 
         public void SetupExternalFiles()
@@ -183,7 +186,16 @@ namespace SunriseEncryption
             EncryptedTextBox.Clear();
         }
 
-        
+        private void LoadPluginButton_Click(object sender, EventArgs e)
+        {
+            if (PluginListView.SelectedItems.Count >= 1)
+            {
+                LoadingLabel.Text = "Loading";
+                LoadingLabel.Show();
+                LoadingLabel.Text += ".";
+            }
+
+        }
     }
 
     public enum Pages

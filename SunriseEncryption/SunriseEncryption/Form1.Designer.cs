@@ -66,13 +66,14 @@ namespace SunriseEncryption
             this.SidePanel = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.PluginButton = new System.Windows.Forms.Button();
-            this.FileEncryptionButton = new System.Windows.Forms.Button();
             this.EncryptButton = new System.Windows.Forms.Button();
             this.HashButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.HorizontalDivider = new System.Windows.Forms.Panel();
             this.VerticalDivider = new System.Windows.Forms.Panel();
             this.PluginListView = new System.Windows.Forms.ListView();
+            this.LoadPluginButton = new System.Windows.Forms.Button();
+            this.LoadingLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.PluginPagePanel.SuspendLayout();
@@ -128,6 +129,8 @@ namespace SunriseEncryption
             // 
             // PluginPagePanel
             // 
+            this.PluginPagePanel.Controls.Add(this.LoadingLabel);
+            this.PluginPagePanel.Controls.Add(this.LoadPluginButton);
             this.PluginPagePanel.Controls.Add(this.PluginListView);
             this.PluginPagePanel.Controls.Add(this.label12);
             this.PluginPagePanel.Location = new System.Drawing.Point(306, 0);
@@ -450,7 +453,6 @@ namespace SunriseEncryption
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.SidePanel.Controls.Add(this.button2);
             this.SidePanel.Controls.Add(this.PluginButton);
-            this.SidePanel.Controls.Add(this.FileEncryptionButton);
             this.SidePanel.Controls.Add(this.EncryptButton);
             this.SidePanel.Controls.Add(this.HashButton);
             this.SidePanel.Controls.Add(this.HomeButton);
@@ -465,7 +467,7 @@ namespace SunriseEncryption
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(11, 515);
+            this.button2.Location = new System.Drawing.Point(11, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(277, 70);
             this.button2.TabIndex = 5;
@@ -478,26 +480,13 @@ namespace SunriseEncryption
             this.PluginButton.FlatAppearance.BorderSize = 0;
             this.PluginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PluginButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PluginButton.Location = new System.Drawing.Point(11, 415);
+            this.PluginButton.Location = new System.Drawing.Point(11, 315);
             this.PluginButton.Name = "PluginButton";
             this.PluginButton.Size = new System.Drawing.Size(277, 70);
             this.PluginButton.TabIndex = 4;
             this.PluginButton.Text = "Plugins";
             this.PluginButton.UseVisualStyleBackColor = false;
             this.PluginButton.Click += new System.EventHandler(this.PluginButton_Click);
-            // 
-            // FileEncryptionButton
-            // 
-            this.FileEncryptionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.FileEncryptionButton.FlatAppearance.BorderSize = 0;
-            this.FileEncryptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FileEncryptionButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FileEncryptionButton.Location = new System.Drawing.Point(12, 315);
-            this.FileEncryptionButton.Name = "FileEncryptionButton";
-            this.FileEncryptionButton.Size = new System.Drawing.Size(277, 70);
-            this.FileEncryptionButton.TabIndex = 3;
-            this.FileEncryptionButton.Text = "File Encryption";
-            this.FileEncryptionButton.UseVisualStyleBackColor = false;
             // 
             // EncryptButton
             // 
@@ -567,6 +556,27 @@ namespace SunriseEncryption
             this.PluginListView.TabIndex = 1;
             this.PluginListView.UseCompatibleStateImageBehavior = false;
             // 
+            // LoadPluginButton
+            // 
+            this.LoadPluginButton.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadPluginButton.Location = new System.Drawing.Point(239, 5);
+            this.LoadPluginButton.Name = "LoadPluginButton";
+            this.LoadPluginButton.Size = new System.Drawing.Size(166, 54);
+            this.LoadPluginButton.TabIndex = 3;
+            this.LoadPluginButton.Text = "Load Plugin";
+            this.LoadPluginButton.UseVisualStyleBackColor = true;
+            this.LoadPluginButton.Click += new System.EventHandler(this.LoadPluginButton_Click);
+            // 
+            // LoadingLabel
+            // 
+            this.LoadingLabel.AutoSize = true;
+            this.LoadingLabel.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadingLabel.Location = new System.Drawing.Point(593, 5);
+            this.LoadingLabel.Name = "LoadingLabel";
+            this.LoadingLabel.Size = new System.Drawing.Size(168, 54);
+            this.LoadingLabel.TabIndex = 4;
+            this.LoadingLabel.Text = "Loading";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -614,7 +624,6 @@ namespace SunriseEncryption
         private System.Windows.Forms.Button EncryptButton;
         private System.Windows.Forms.Button HashButton;
         private System.Windows.Forms.Panel VerticalDivider;
-        private System.Windows.Forms.Button FileEncryptionButton;
         private System.Windows.Forms.Panel HashingPagePanel;
         private System.Windows.Forms.Panel HomePagePanel;
         private System.Windows.Forms.Button button2;
@@ -647,6 +656,8 @@ namespace SunriseEncryption
         private System.Windows.Forms.Panel PluginPagePanel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListView PluginListView;
+        private System.Windows.Forms.Button LoadPluginButton;
+        private System.Windows.Forms.Label LoadingLabel;
     }
 }
 
