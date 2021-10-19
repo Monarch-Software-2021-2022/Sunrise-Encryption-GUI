@@ -33,5 +33,5 @@ For the TSA Project 2021-2022
 
 ## Credits
 
-- Lead Project : Robert Thompson
+- Lead Project / Programmer : Robert Thompson
 - Programmer / Artist : Skylar Friar
