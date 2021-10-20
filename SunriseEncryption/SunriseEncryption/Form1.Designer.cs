@@ -30,11 +30,28 @@ namespace SunriseEncryption
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SettingsPagePanel = new System.Windows.Forms.Panel();
+            this.ApplySettingsButton = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.IncludePluginVersionCheckbox = new System.Windows.Forms.CheckBox();
+            this.IncludePluginAuthorCheckbox = new System.Windows.Forms.CheckBox();
+            this.IncludePluginInfoCheckbox = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.PluginPagePanel = new System.Windows.Forms.Panel();
+            this.OpenPluginFolder = new System.Windows.Forms.Button();
+            this.OutputLabel = new System.Windows.Forms.Label();
+            this.OutputPluginTextBox = new System.Windows.Forms.RichTextBox();
+            this.ClearPluginButton = new System.Windows.Forms.Button();
+            this.SubmitPluginButton = new System.Windows.Forms.Button();
+            this.PluginInputTextBox = new System.Windows.Forms.RichTextBox();
+            this.InputLabel = new System.Windows.Forms.Label();
+            this.LoadingLabel = new System.Windows.Forms.Label();
+            this.LoadPluginButton = new System.Windows.Forms.Button();
+            this.PluginListView = new System.Windows.Forms.ListView();
             this.label12 = new System.Windows.Forms.Label();
             this.HomePagePanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,18 +81,15 @@ namespace SunriseEncryption
             this.TextToBeEncryptedTextBox = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.PluginButton = new System.Windows.Forms.Button();
             this.EncryptButton = new System.Windows.Forms.Button();
             this.HashButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.HorizontalDivider = new System.Windows.Forms.Panel();
             this.VerticalDivider = new System.Windows.Forms.Panel();
-            this.PluginListView = new System.Windows.Forms.ListView();
-            this.LoadPluginButton = new System.Windows.Forms.Button();
-            this.LoadingLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.SettingsPagePanel.SuspendLayout();
             this.PluginPagePanel.SuspendLayout();
             this.HomePagePanel.SuspendLayout();
             this.HashingPagePanel.SuspendLayout();
@@ -83,22 +97,13 @@ namespace SunriseEncryption
             this.SidePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 142);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(184, 12);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(570, 81);
             this.label1.TabIndex = 1;
@@ -107,9 +112,10 @@ namespace SunriseEncryption
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(163)))), ((int)(((byte)(7)))));
-            this.label2.Location = new System.Drawing.Point(189, 93);
+            this.label2.Location = new System.Drawing.Point(17, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(523, 54);
             this.label2.TabIndex = 2;
@@ -122,13 +128,110 @@ namespace SunriseEncryption
             this.panel1.Controls.Add(this.HomePagePanel);
             this.panel1.Controls.Add(this.HashingPagePanel);
             this.panel1.Controls.Add(this.EncryptionPagePanel);
+            this.panel1.Controls.Add(this.SettingsPagePanel);
             this.panel1.Location = new System.Drawing.Point(1, 176);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1261, 660);
             this.panel1.TabIndex = 3;
             // 
+            // SettingsPagePanel
+            // 
+            this.SettingsPagePanel.Controls.Add(this.ApplySettingsButton);
+            this.SettingsPagePanel.Controls.Add(this.checkBox1);
+            this.SettingsPagePanel.Controls.Add(this.label13);
+            this.SettingsPagePanel.Controls.Add(this.IncludePluginVersionCheckbox);
+            this.SettingsPagePanel.Controls.Add(this.IncludePluginAuthorCheckbox);
+            this.SettingsPagePanel.Controls.Add(this.IncludePluginInfoCheckbox);
+            this.SettingsPagePanel.Controls.Add(this.label11);
+            this.SettingsPagePanel.Location = new System.Drawing.Point(306, 0);
+            this.SettingsPagePanel.Name = "SettingsPagePanel";
+            this.SettingsPagePanel.Size = new System.Drawing.Size(955, 657);
+            this.SettingsPagePanel.TabIndex = 2;
+            // 
+            // ApplySettingsButton
+            // 
+            this.ApplySettingsButton.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplySettingsButton.Location = new System.Drawing.Point(11, 583);
+            this.ApplySettingsButton.Name = "ApplySettingsButton";
+            this.ApplySettingsButton.Size = new System.Drawing.Size(230, 54);
+            this.ApplySettingsButton.TabIndex = 9;
+            this.ApplySettingsButton.Text = "Apply Settings";
+            this.ApplySettingsButton.UseVisualStyleBackColor = true;
+            this.ApplySettingsButton.Click += new System.EventHandler(this.ApplySettingsButton_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(20, 318);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(329, 45);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "Dark Theme Enabled";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(11, 250);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(396, 54);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Application Settings:";
+            // 
+            // IncludePluginVersionCheckbox
+            // 
+            this.IncludePluginVersionCheckbox.AutoSize = true;
+            this.IncludePluginVersionCheckbox.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IncludePluginVersionCheckbox.Location = new System.Drawing.Point(20, 182);
+            this.IncludePluginVersionCheckbox.Name = "IncludePluginVersionCheckbox";
+            this.IncludePluginVersionCheckbox.Size = new System.Drawing.Size(347, 45);
+            this.IncludePluginVersionCheckbox.TabIndex = 3;
+            this.IncludePluginVersionCheckbox.Text = "Include Plugin Version";
+            this.IncludePluginVersionCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // IncludePluginAuthorCheckbox
+            // 
+            this.IncludePluginAuthorCheckbox.AutoSize = true;
+            this.IncludePluginAuthorCheckbox.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IncludePluginAuthorCheckbox.Location = new System.Drawing.Point(20, 131);
+            this.IncludePluginAuthorCheckbox.Name = "IncludePluginAuthorCheckbox";
+            this.IncludePluginAuthorCheckbox.Size = new System.Drawing.Size(339, 45);
+            this.IncludePluginAuthorCheckbox.TabIndex = 2;
+            this.IncludePluginAuthorCheckbox.Text = "Include Plugin Author";
+            this.IncludePluginAuthorCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // IncludePluginInfoCheckbox
+            // 
+            this.IncludePluginInfoCheckbox.AutoSize = true;
+            this.IncludePluginInfoCheckbox.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IncludePluginInfoCheckbox.Location = new System.Drawing.Point(20, 80);
+            this.IncludePluginInfoCheckbox.Name = "IncludePluginInfoCheckbox";
+            this.IncludePluginInfoCheckbox.Size = new System.Drawing.Size(298, 45);
+            this.IncludePluginInfoCheckbox.TabIndex = 1;
+            this.IncludePluginInfoCheckbox.Text = "Include Plugin Info";
+            this.IncludePluginInfoCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(11, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(304, 54);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Plugin Settings:";
+            // 
             // PluginPagePanel
             // 
+            this.PluginPagePanel.Controls.Add(this.OpenPluginFolder);
+            this.PluginPagePanel.Controls.Add(this.OutputLabel);
+            this.PluginPagePanel.Controls.Add(this.OutputPluginTextBox);
+            this.PluginPagePanel.Controls.Add(this.ClearPluginButton);
+            this.PluginPagePanel.Controls.Add(this.SubmitPluginButton);
+            this.PluginPagePanel.Controls.Add(this.PluginInputTextBox);
+            this.PluginPagePanel.Controls.Add(this.InputLabel);
             this.PluginPagePanel.Controls.Add(this.LoadingLabel);
             this.PluginPagePanel.Controls.Add(this.LoadPluginButton);
             this.PluginPagePanel.Controls.Add(this.PluginListView);
@@ -137,6 +240,105 @@ namespace SunriseEncryption
             this.PluginPagePanel.Name = "PluginPagePanel";
             this.PluginPagePanel.Size = new System.Drawing.Size(955, 657);
             this.PluginPagePanel.TabIndex = 2;
+            // 
+            // OpenPluginFolder
+            // 
+            this.OpenPluginFolder.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenPluginFolder.Location = new System.Drawing.Point(11, 591);
+            this.OpenPluginFolder.Name = "OpenPluginFolder";
+            this.OpenPluginFolder.Size = new System.Drawing.Size(260, 54);
+            this.OpenPluginFolder.TabIndex = 11;
+            this.OpenPluginFolder.Text = "Open Plugin Folder";
+            this.OpenPluginFolder.UseVisualStyleBackColor = true;
+            this.OpenPluginFolder.Click += new System.EventHandler(this.OpenPluginFolder_Click);
+            // 
+            // OutputLabel
+            // 
+            this.OutputLabel.AutoSize = true;
+            this.OutputLabel.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputLabel.Location = new System.Drawing.Point(419, 358);
+            this.OutputLabel.Name = "OutputLabel";
+            this.OutputLabel.Size = new System.Drawing.Size(175, 54);
+            this.OutputLabel.TabIndex = 10;
+            this.OutputLabel.Text = "Output: ";
+            // 
+            // OutputPluginTextBox
+            // 
+            this.OutputPluginTextBox.Location = new System.Drawing.Point(428, 415);
+            this.OutputPluginTextBox.Name = "OutputPluginTextBox";
+            this.OutputPluginTextBox.Size = new System.Drawing.Size(505, 222);
+            this.OutputPluginTextBox.TabIndex = 9;
+            this.OutputPluginTextBox.Text = "";
+            // 
+            // ClearPluginButton
+            // 
+            this.ClearPluginButton.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearPluginButton.Location = new System.Drawing.Point(764, 291);
+            this.ClearPluginButton.Name = "ClearPluginButton";
+            this.ClearPluginButton.Size = new System.Drawing.Size(166, 54);
+            this.ClearPluginButton.TabIndex = 8;
+            this.ClearPluginButton.Text = "Clear";
+            this.ClearPluginButton.UseVisualStyleBackColor = true;
+            // 
+            // SubmitPluginButton
+            // 
+            this.SubmitPluginButton.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitPluginButton.Location = new System.Drawing.Point(428, 291);
+            this.SubmitPluginButton.Name = "SubmitPluginButton";
+            this.SubmitPluginButton.Size = new System.Drawing.Size(166, 54);
+            this.SubmitPluginButton.TabIndex = 7;
+            this.SubmitPluginButton.Text = "Submit";
+            this.SubmitPluginButton.UseVisualStyleBackColor = true;
+            this.SubmitPluginButton.Click += new System.EventHandler(this.SubmitPluginButton_Click);
+            // 
+            // PluginInputTextBox
+            // 
+            this.PluginInputTextBox.Location = new System.Drawing.Point(428, 63);
+            this.PluginInputTextBox.Name = "PluginInputTextBox";
+            this.PluginInputTextBox.Size = new System.Drawing.Size(505, 222);
+            this.PluginInputTextBox.TabIndex = 6;
+            this.PluginInputTextBox.Text = "";
+            // 
+            // InputLabel
+            // 
+            this.InputLabel.AutoSize = true;
+            this.InputLabel.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InputLabel.Location = new System.Drawing.Point(419, 5);
+            this.InputLabel.Name = "InputLabel";
+            this.InputLabel.Size = new System.Drawing.Size(141, 54);
+            this.InputLabel.TabIndex = 5;
+            this.InputLabel.Text = "Input: ";
+            // 
+            // LoadingLabel
+            // 
+            this.LoadingLabel.AutoSize = true;
+            this.LoadingLabel.Font = new System.Drawing.Font("Malgun Gothic", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadingLabel.Location = new System.Drawing.Point(435, 278);
+            this.LoadingLabel.Name = "LoadingLabel";
+            this.LoadingLabel.Size = new System.Drawing.Size(495, 67);
+            this.LoadingLabel.TabIndex = 4;
+            this.LoadingLabel.Text = "Loading Plugin List...";
+            // 
+            // LoadPluginButton
+            // 
+            this.LoadPluginButton.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadPluginButton.Location = new System.Drawing.Point(239, 5);
+            this.LoadPluginButton.Name = "LoadPluginButton";
+            this.LoadPluginButton.Size = new System.Drawing.Size(166, 54);
+            this.LoadPluginButton.TabIndex = 3;
+            this.LoadPluginButton.Text = "Load Plugin";
+            this.LoadPluginButton.UseVisualStyleBackColor = true;
+            this.LoadPluginButton.Click += new System.EventHandler(this.LoadPluginButton_Click);
+            // 
+            // PluginListView
+            // 
+            this.PluginListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PluginListView.HideSelection = false;
+            this.PluginListView.Location = new System.Drawing.Point(11, 61);
+            this.PluginListView.Name = "PluginListView";
+            this.PluginListView.Size = new System.Drawing.Size(394, 524);
+            this.PluginListView.TabIndex = 1;
+            this.PluginListView.UseCompatibleStateImageBehavior = false;
             // 
             // label12
             // 
@@ -451,7 +653,7 @@ namespace SunriseEncryption
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.SidePanel.Controls.Add(this.button2);
+            this.SidePanel.Controls.Add(this.SettingsButton);
             this.SidePanel.Controls.Add(this.PluginButton);
             this.SidePanel.Controls.Add(this.EncryptButton);
             this.SidePanel.Controls.Add(this.HashButton);
@@ -461,18 +663,19 @@ namespace SunriseEncryption
             this.SidePanel.Size = new System.Drawing.Size(300, 657);
             this.SidePanel.TabIndex = 4;
             // 
-            // button2
+            // SettingsButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(11, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(277, 70);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Settings";
-            this.button2.UseVisualStyleBackColor = false;
+            this.SettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
+            this.SettingsButton.FlatAppearance.BorderSize = 0;
+            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsButton.Location = new System.Drawing.Point(11, 415);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(277, 70);
+            this.SettingsButton.TabIndex = 5;
+            this.SettingsButton.Text = "Settings";
+            this.SettingsButton.UseVisualStyleBackColor = false;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
             // PluginButton
             // 
@@ -535,7 +738,7 @@ namespace SunriseEncryption
             this.HorizontalDivider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
             this.HorizontalDivider.Location = new System.Drawing.Point(0, 165);
             this.HorizontalDivider.Name = "HorizontalDivider";
-            this.HorizontalDivider.Size = new System.Drawing.Size(1296, 10);
+            this.HorizontalDivider.Size = new System.Drawing.Size(1262, 10);
             this.HorizontalDivider.TabIndex = 0;
             // 
             // VerticalDivider
@@ -546,37 +749,6 @@ namespace SunriseEncryption
             this.VerticalDivider.Size = new System.Drawing.Size(10, 660);
             this.VerticalDivider.TabIndex = 1;
             // 
-            // PluginListView
-            // 
-            this.PluginListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PluginListView.HideSelection = false;
-            this.PluginListView.Location = new System.Drawing.Point(11, 61);
-            this.PluginListView.Name = "PluginListView";
-            this.PluginListView.Size = new System.Drawing.Size(394, 577);
-            this.PluginListView.TabIndex = 1;
-            this.PluginListView.UseCompatibleStateImageBehavior = false;
-            // 
-            // LoadPluginButton
-            // 
-            this.LoadPluginButton.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadPluginButton.Location = new System.Drawing.Point(239, 5);
-            this.LoadPluginButton.Name = "LoadPluginButton";
-            this.LoadPluginButton.Size = new System.Drawing.Size(166, 54);
-            this.LoadPluginButton.TabIndex = 3;
-            this.LoadPluginButton.Text = "Load Plugin";
-            this.LoadPluginButton.UseVisualStyleBackColor = true;
-            this.LoadPluginButton.Click += new System.EventHandler(this.LoadPluginButton_Click);
-            // 
-            // LoadingLabel
-            // 
-            this.LoadingLabel.AutoSize = true;
-            this.LoadingLabel.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadingLabel.Location = new System.Drawing.Point(593, 5);
-            this.LoadingLabel.Name = "LoadingLabel";
-            this.LoadingLabel.Size = new System.Drawing.Size(168, 54);
-            this.LoadingLabel.TabIndex = 4;
-            this.LoadingLabel.Text = "Loading";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -584,20 +756,20 @@ namespace SunriseEncryption
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1265, 826);
+            this.ClientSize = new System.Drawing.Size(1257, 826);
             this.Controls.Add(this.VerticalDivider);
             this.Controls.Add(this.HorizontalDivider);
             this.Controls.Add(this.SidePanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sunrise Encryption";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.SettingsPagePanel.ResumeLayout(false);
+            this.SettingsPagePanel.PerformLayout();
             this.PluginPagePanel.ResumeLayout(false);
             this.PluginPagePanel.PerformLayout();
             this.HomePagePanel.ResumeLayout(false);
@@ -613,8 +785,6 @@ namespace SunriseEncryption
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
@@ -626,7 +796,7 @@ namespace SunriseEncryption
         private System.Windows.Forms.Panel VerticalDivider;
         private System.Windows.Forms.Panel HashingPagePanel;
         private System.Windows.Forms.Panel HomePagePanel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.Button PluginButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox TextToBeHashed;
@@ -658,6 +828,21 @@ namespace SunriseEncryption
         private System.Windows.Forms.ListView PluginListView;
         private System.Windows.Forms.Button LoadPluginButton;
         private System.Windows.Forms.Label LoadingLabel;
+        private System.Windows.Forms.Label OutputLabel;
+        private System.Windows.Forms.RichTextBox OutputPluginTextBox;
+        private System.Windows.Forms.Button ClearPluginButton;
+        private System.Windows.Forms.Button SubmitPluginButton;
+        private System.Windows.Forms.RichTextBox PluginInputTextBox;
+        private System.Windows.Forms.Label InputLabel;
+        private System.Windows.Forms.Button OpenPluginFolder;
+        private System.Windows.Forms.Panel SettingsPagePanel;
+        private System.Windows.Forms.Button ApplySettingsButton;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox IncludePluginVersionCheckbox;
+        private System.Windows.Forms.CheckBox IncludePluginAuthorCheckbox;
+        private System.Windows.Forms.CheckBox IncludePluginInfoCheckbox;
+        private System.Windows.Forms.Label label11;
     }
 }
 

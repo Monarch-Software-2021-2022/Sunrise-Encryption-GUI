@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SunriseEncryption.EncryptionMethods;
 using SunriseEncryption.Plugin;
+using SunriseEncryption.Settings;
 
 namespace SunriseEncryption
 {
@@ -20,7 +22,20 @@ namespace SunriseEncryption
             InitializeComponent();
             SetupExternalFiles();
 
-            LoadingLabel.Hide();
+            LoadPluginPage();
+            ApplicationSettings.LoadSettings();
+
+            LoadSettings();
+        }
+
+        public void LoadPluginPage()
+        {
+            InputLabel.Hide();
+            OutputLabel.Hide();
+            SubmitPluginButton.Hide();
+            ClearPluginButton.Hide();
+            PluginInputTextBox.Hide();
+            OutputPluginTextBox.Hide();
         }
 
         public void LoadPluginList()
@@ -30,6 +45,7 @@ namespace SunriseEncryption
             PluginListView.FullRowSelect = true;
 
             PluginListView.Items.Clear();
+            PluginListView.Columns.Clear();
 
             PluginListView.Columns.Add("Plugin", 150);
             PluginListView.Columns.Add("Info", 150);
@@ -42,11 +58,13 @@ namespace SunriseEncryption
                 ListViewItem item;
 
                 arr[0] = plugin.Split('\\').Last();
-                arr[1] = "None";
+                arr[1] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginInfo);
 
                 item = new ListViewItem(arr);
                 PluginListView.Items.Add(item);
             }
+
+            LoadingLabel.Hide();
 
         }
 
@@ -71,6 +89,7 @@ namespace SunriseEncryption
             HashingPagePanel.Hide();
             EncryptionPagePanel.Hide();
             PluginPagePanel.Hide();
+            SettingsPagePanel.Hide();
             #endregion
 
             switch (page)
@@ -88,6 +107,9 @@ namespace SunriseEncryption
                     PluginPagePanel.Show();
                     LoadPluginList();
                     break;
+                case Pages.Settings:
+                    SettingsPagePanel.Show();
+                    break;
             }
         }
 
@@ -95,6 +117,7 @@ namespace SunriseEncryption
         private void HashButton_Click(object sender, EventArgs e) => LoadPage(Pages.Hashing);
         private void EncryptButton_Click(object sender, EventArgs e) => LoadPage(Pages.Encryption);
         private void PluginButton_Click(object sender, EventArgs e) => LoadPage(Pages.Plugins);
+        private void SettingsButton_Click(object sender, EventArgs e) => LoadPage(Pages.Settings);
 
         private void HashingButton_Click(object sender, EventArgs e)
         {
@@ -186,15 +209,157 @@ namespace SunriseEncryption
             EncryptedTextBox.Clear();
         }
 
+        public string SelectedPlugin;
+
         private void LoadPluginButton_Click(object sender, EventArgs e)
         {
             if (PluginListView.SelectedItems.Count >= 1)
             {
-                LoadingLabel.Text = "Loading";
-                LoadingLabel.Show();
-                LoadingLabel.Text += ".";
+                InputLabel.Show();
+                OutputLabel.Show();
+                SubmitPluginButton.Show();
+                ClearPluginButton.Show();
+                PluginInputTextBox.Show();
+                OutputPluginTextBox.Show();
+
+                SelectedPlugin = PluginListView.SelectedItems[0].Text;
             }
 
+        }
+
+        private void SubmitPluginButton_Click(object sender, EventArgs e)
+        {
+            string text = PluginInputTextBox.Text;
+            object returnOutput = LoadPlugin.Load(Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Plugins"), SelectedPlugin), text);
+
+            OutputPluginTextBox.Text = returnOutput.ToString();
+        }
+
+        private void OpenPluginFolder_Click(object sender, EventArgs e) => Process.Start(Path.Combine(Directory.GetCurrentDirectory(), "Plugins"));
+
+        public void LoadSettings(bool skipSettings = false)
+        {
+            #region Settings Page
+            if (!skipSettings)
+            {
+                IncludePluginInfoCheckbox.Checked = ApplicationSettings.PluginInfo;
+                IncludePluginAuthorCheckbox.Checked = ApplicationSettings.PluginAuthor;
+                IncludePluginVersionCheckbox.Checked = ApplicationSettings.PluginVersion;
+
+                checkBox1.Checked = ApplicationSettings.DarkTheme;
+            }
+            #endregion
+
+
+            // Oh I am so sorry for this future me, but it must be done
+            if (ApplicationSettings.DarkTheme)
+            {
+                Color DarkThemePagePanel = Color.FromArgb(71, 71, 71);
+
+                #region Pages & Panels
+                VerticalDivider.BackColor = Color.FromArgb(22, 138, 173);
+                HorizontalDivider.BackColor = Color.FromArgb(22, 138, 173);
+
+                SettingsPagePanel.BackColor = DarkThemePagePanel;
+                PluginPagePanel.BackColor = DarkThemePagePanel;
+                HomePagePanel.BackColor = DarkThemePagePanel;
+                HashingPagePanel.BackColor = DarkThemePagePanel;
+                EncryptionPagePanel.BackColor = DarkThemePagePanel;
+                panel1.BackColor = DarkThemePagePanel;
+                #endregion
+
+                #region Side Buttons & Panel
+                Color SideButtonColor = Color.FromArgb(46, 46, 46);
+                SidePanel.BackColor = Color.FromArgb(94, 94, 94);
+                HomeButton.BackColor = SideButtonColor;
+                HashButton.BackColor = SideButtonColor;
+                EncryptButton.BackColor = SideButtonColor;
+                SettingsButton.BackColor = SideButtonColor;
+                PluginButton.BackColor = SideButtonColor;
+
+                Color SideButtonForeColor = Color.FromArgb(173, 181, 189);
+                HomeButton.ForeColor = SideButtonForeColor;
+                HashButton.ForeColor = SideButtonForeColor;
+                EncryptButton.ForeColor = SideButtonForeColor;
+                SettingsButton.ForeColor = SideButtonForeColor;
+                PluginButton.ForeColor = SideButtonForeColor;
+
+                #endregion
+
+                #region Top Header
+                BackColor = Color.FromArgb(23, 23, 23);
+                label2.ForeColor = Color.FromArgb(0, 150, 199);
+                label1.ForeColor = Color.FromArgb(0, 119, 182);
+                #endregion
+
+                #region Text Labels
+                Color HeaderLabel = Color.FromArgb(233, 236, 239);
+                Color Label = Color.FromArgb(222, 226, 230);
+                label13.ForeColor = Label;
+                label3.ForeColor = HeaderLabel;
+                label4.ForeColor = Label;
+                label5.ForeColor = Label;
+                label6.ForeColor = Label;
+                label7.ForeColor = Label;
+                label8.ForeColor = Label;
+                label9.ForeColor = Label;
+                label10.ForeColor = Label;
+                label11.ForeColor = HeaderLabel;
+                label12.ForeColor = HeaderLabel;
+                label13.ForeColor = HeaderLabel;
+
+                InputLabel.ForeColor = HeaderLabel;
+                OutputLabel.ForeColor = HeaderLabel;
+                LoadingLabel.ForeColor = HeaderLabel;
+
+                KeyNoteLabel.ForeColor = Label;
+                CipherShiftLabel.ForeColor = Label;
+
+                IncludePluginAuthorCheckbox.ForeColor = Label;
+                IncludePluginInfoCheckbox.ForeColor = Label;
+                IncludePluginVersionCheckbox.ForeColor = Label;
+                checkBox1.ForeColor = Label;
+
+
+                #endregion
+
+                #region Plugin Page
+
+                #endregion
+
+
+
+            }
+        }
+
+        private void ApplySettingsButton_Click(object sender, EventArgs e)
+        {
+            bool author;
+            bool version;
+            bool info;
+
+            bool darkTheme;
+
+            #region Plugin Settings
+            author = IncludePluginAuthorCheckbox.Checked;
+            version = IncludePluginVersionCheckbox.Checked;
+            info = IncludePluginInfoCheckbox.Checked;
+            #endregion
+
+            #region Application Settings
+            darkTheme = checkBox1.Checked;
+            #endregion
+
+            Config cfg = new Config
+            {
+                DarkThemeEnabled = darkTheme,
+                PluginInfoEnabled = info,
+                PluginAuthorEnabled = author,
+                PluginVersionEnabled = version
+            };
+
+            ApplicationSettings.ApplySettings(cfg);
+            LoadSettings(true);
         }
     }
 

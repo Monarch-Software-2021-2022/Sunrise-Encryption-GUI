@@ -10,7 +10,10 @@ namespace ExamplePlugin
 {
     public class Plugin
     {
-        public static object Load(string input) { return null;  }
+        public static object Load(string input) 
+        {
+            return $"Example Plugin Response : " + input.Length;
+        }
         public static void Initalize() 
         {
             Toasting toast = new Toasting();

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunriseEncryption", "Sunris
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamplePlugin", "ExamplePlugin\ExamplePlugin.csproj", "{81EF8A85-682B-4600-81A9-FB916446C346}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uwuTranslator", "uwuTranslator\uwuTranslator.csproj", "{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{81EF8A85-682B-4600-81A9-FB916446C346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81EF8A85-682B-4600-81A9-FB916446C346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81EF8A85-682B-4600-81A9-FB916446C346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
