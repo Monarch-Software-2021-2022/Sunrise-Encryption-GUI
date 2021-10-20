@@ -19,17 +19,19 @@ For the TSA Project 2021-2022
 - Load & Initalize Plugins
 - Dedicated Info Files for Plugins
 
+**Other**
+- Dark Theme
+- Settings
+- Plugin Framework isnt getting faster than what it currently is
+
 ## What needs to be completed
 
-- Settings
 - More Encryption Methods
 - Better Icons & Thumbnails
 
 ## What I would like to be done
 
 - Better Plugin Framework
-- Plugin Loading should be faster for more complex plugins
-- Dark Theme
 
 ## Credits
 
