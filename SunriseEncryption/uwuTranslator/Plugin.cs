@@ -12,7 +12,7 @@ namespace uwuTranslator
         public static object Load(string input)
         {
             string uwu = input.ToLower().Replace('l', 'w').Replace('r', 'w');
-            return uwu + "<3 uwu";
+            return uwu + " <3 uwu";
         }
         public static void Initalize()
         {

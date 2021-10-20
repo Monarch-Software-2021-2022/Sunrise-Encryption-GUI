@@ -41,24 +41,34 @@ namespace SunriseEncryption
         public void LoadPluginList()
         {
             PluginListView.View = View.Details;
-            PluginListView.GridLines = true;
+            PluginListView.GridLines = false;
             PluginListView.FullRowSelect = true;
 
             PluginListView.Items.Clear();
             PluginListView.Columns.Clear();
 
             PluginListView.Columns.Add("Plugin", 150);
-            PluginListView.Columns.Add("Info", 150);
+            if (ApplicationSettings.PluginInfo)
+                PluginListView.Columns.Add("Info", 150);
+            if (ApplicationSettings.PluginAuthor)
+                PluginListView.Columns.Add("Author", 150);
+            if (ApplicationSettings.PluginVersion)
+                PluginListView.Columns.Add("Version", 150);
 
             LoadPlugin.CheckPluginAvailability();
             InitalizePlugin.Initalize();
             foreach (string plugin in LoadPlugin.AvailablePlugins)
             {
-                string[] arr = new string[3];
+                string[] arr = new string[5];
                 ListViewItem item;
 
                 arr[0] = plugin.Split('\\').Last();
-                arr[1] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginInfo);
+                if (ApplicationSettings.PluginInfo)
+                    arr[1] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginInfo);
+                if (ApplicationSettings.PluginAuthor)
+                    arr[2] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginAuthor);
+                if (ApplicationSettings.PluginVersion)
+                    arr[3] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginVersion);
 
                 item = new ListViewItem(arr);
                 PluginListView.Items.Add(item);
@@ -118,6 +128,12 @@ namespace SunriseEncryption
         private void EncryptButton_Click(object sender, EventArgs e) => LoadPage(Pages.Encryption);
         private void PluginButton_Click(object sender, EventArgs e) => LoadPage(Pages.Plugins);
         private void SettingsButton_Click(object sender, EventArgs e) => LoadPage(Pages.Settings);
+
+        private void ReloadPluginList_Click(object sender, EventArgs e)
+        {
+            LoadPluginList();
+            LoadPluginPage();
+        }
 
         private void HashingButton_Click(object sender, EventArgs e)
         {
@@ -254,11 +270,13 @@ namespace SunriseEncryption
             // Oh I am so sorry for this future me, but it must be done
             if (ApplicationSettings.DarkTheme)
             {
-                Color DarkThemePagePanel = Color.FromArgb(71, 71, 71);
+                Color DarkThemePagePanel = Color.FromArgb(64, 72, 84);
 
                 #region Pages & Panels
-                VerticalDivider.BackColor = Color.FromArgb(22, 138, 173);
-                HorizontalDivider.BackColor = Color.FromArgb(22, 138, 173);
+                VerticalDivider.BackColor = Color.FromArgb(40, 46, 54);
+                HorizontalDivider.BackColor = Color.FromArgb(28, 33, 40);
+                panel2.BackColor = Color.FromArgb(46, 53, 64);
+                panel4.BackColor = Color.FromArgb(46, 53, 64);
 
                 SettingsPagePanel.BackColor = DarkThemePagePanel;
                 PluginPagePanel.BackColor = DarkThemePagePanel;
@@ -269,8 +287,8 @@ namespace SunriseEncryption
                 #endregion
 
                 #region Side Buttons & Panel
-                Color SideButtonColor = Color.FromArgb(46, 46, 46);
-                SidePanel.BackColor = Color.FromArgb(94, 94, 94);
+                Color SideButtonColor = Color.FromArgb(71, 79, 89);
+                SidePanel.BackColor = Color.FromArgb(40, 46, 54);
                 HomeButton.BackColor = SideButtonColor;
                 HashButton.BackColor = SideButtonColor;
                 EncryptButton.BackColor = SideButtonColor;
@@ -287,9 +305,8 @@ namespace SunriseEncryption
                 #endregion
 
                 #region Top Header
-                BackColor = Color.FromArgb(23, 23, 23);
-                label2.ForeColor = Color.FromArgb(0, 150, 199);
-                label1.ForeColor = Color.FromArgb(0, 119, 182);
+                BackColor = Color.FromArgb(28, 33, 40);
+                label1.ForeColor = Color.FromArgb(207, 125, 78);
                 #endregion
 
                 #region Text Labels
@@ -319,16 +336,259 @@ namespace SunriseEncryption
                 IncludePluginInfoCheckbox.ForeColor = Label;
                 IncludePluginVersionCheckbox.ForeColor = Label;
                 checkBox1.ForeColor = Label;
+                LowercaseHashBool.ForeColor = Label;
+                #endregion
+
+                #region Regular Buttons
+                Color regularButtons = Color.FromArgb(95, 106, 120);
+
+                HashingButton.BackColor = regularButtons;
+                HashingButton.ForeColor = Label;
+                HashingButton.FlatStyle = FlatStyle.Flat;
+                HashingButton.FlatAppearance.BorderColor = regularButtons;
+
+                ClearHashString.BackColor = regularButtons;
+                ClearHashString.ForeColor = Label;
+                ClearHashString.FlatStyle = FlatStyle.Flat;
+                ClearHashString.FlatAppearance.BorderColor = regularButtons;
+
+                EncryptionButton.BackColor = regularButtons;
+                EncryptionButton.ForeColor = Label;
+                EncryptionButton.FlatStyle = FlatStyle.Flat;
+                EncryptionButton.FlatAppearance.BorderColor = regularButtons;
+
+                ClearEncryptedButton.BackColor = regularButtons;
+                ClearEncryptedButton.ForeColor = Label;
+                ClearEncryptedButton.FlatStyle = FlatStyle.Flat;
+                ClearEncryptedButton.FlatAppearance.BorderColor = regularButtons;
+
+                LoadPluginButton.BackColor = regularButtons;
+                LoadPluginButton.ForeColor = Label;
+                LoadPluginButton.FlatStyle = FlatStyle.Flat;
+                LoadPluginButton.FlatAppearance.BorderColor = regularButtons;
+
+                OpenPluginFolder.BackColor = regularButtons;
+                OpenPluginFolder.ForeColor = Label;
+                OpenPluginFolder.FlatStyle = FlatStyle.Flat;
+                OpenPluginFolder.FlatAppearance.BorderColor = regularButtons;
+
+                ApplySettingsButton.BackColor = regularButtons;
+                ApplySettingsButton.ForeColor = Label;
+                ApplySettingsButton.FlatStyle = FlatStyle.Flat;
+                ApplySettingsButton.FlatAppearance.BorderColor = regularButtons;
+
+                SubmitPluginButton.BackColor = regularButtons;
+                SubmitPluginButton.ForeColor = Label;
+                SubmitPluginButton.FlatStyle = FlatStyle.Flat;
+                SubmitPluginButton.FlatAppearance.BorderColor = regularButtons;
+
+                ClearPluginButton.BackColor = regularButtons;
+                ClearPluginButton.ForeColor = Label;
+                ClearPluginButton.FlatStyle = FlatStyle.Flat;
+                ClearPluginButton.FlatAppearance.BorderColor = regularButtons;
+
+                ReloadPluginList.BackColor = regularButtons;
+                ReloadPluginList.ForeColor = Label;
+                ReloadPluginList.FlatStyle = FlatStyle.Flat;
+                ReloadPluginList.FlatAppearance.BorderColor = regularButtons;
+                #endregion
+
+                #region Text Boxes
+                Color textBoxes = Color.FromArgb(90, 99, 112);
+                TextToBeHashed.BackColor = textBoxes;
+                TextToBeHashed.ForeColor = Label;
+                TextToBeHashed.BorderStyle = BorderStyle.None;
+
+                HashedTextBox.BackColor = textBoxes;
+                HashedTextBox.ForeColor = Label;
+                HashedTextBox.BorderStyle = BorderStyle.None;
+
+                TextToBeEncryptedTextBox.BackColor = textBoxes;
+                TextToBeEncryptedTextBox.ForeColor = Label;
+                TextToBeEncryptedTextBox.BorderStyle = BorderStyle.None;
+
+                EncryptedTextBox.BackColor = textBoxes;
+                EncryptedTextBox.ForeColor = Label;
+                EncryptedTextBox.BorderStyle = BorderStyle.None;
+
+                PluginInputTextBox.BackColor = textBoxes;
+                PluginInputTextBox.ForeColor = Label;
+                PluginInputTextBox.BorderStyle = BorderStyle.None;
+
+                OutputPluginTextBox.BackColor = textBoxes;
+                OutputPluginTextBox.ForeColor = Label;
+                OutputPluginTextBox.BorderStyle = BorderStyle.None;
 
 
                 #endregion
 
-                #region Plugin Page
+                #region Plugin Menu
+                PluginListView.BackColor = textBoxes;
+                PluginListView.ForeColor = Label;
+
+                PluginListView.BorderStyle = BorderStyle.None;
+
+                PluginListView.HideSelection = true;
+                #endregion
+            }
+
+            else
+            {
+                Color DarkThemePagePanel = Color.FromArgb(248, 249, 250);
+
+                #region Pages & Panels
+                VerticalDivider.BackColor = Color.FromArgb(247, 127, 0);
+                HorizontalDivider.BackColor = Color.FromArgb(247, 127, 0);
+                panel2.BackColor = Color.FromArgb(233, 196, 106);
+                panel4.BackColor = Color.FromArgb(233, 196, 106);
+
+                SettingsPagePanel.BackColor = DarkThemePagePanel;
+                PluginPagePanel.BackColor = DarkThemePagePanel;
+                HomePagePanel.BackColor = DarkThemePagePanel;
+                HashingPagePanel.BackColor = DarkThemePagePanel;
+                EncryptionPagePanel.BackColor = DarkThemePagePanel;
+                panel1.BackColor = DarkThemePagePanel;
+                #endregion
+
+                #region Side Buttons & Panel
+                Color SideButtonColor = Color.FromArgb(222, 226, 230);
+                SidePanel.BackColor = Color.FromArgb(233, 236, 239);
+                HomeButton.BackColor = SideButtonColor;
+                HashButton.BackColor = SideButtonColor;
+                EncryptButton.BackColor = SideButtonColor;
+                SettingsButton.BackColor = SideButtonColor;
+                PluginButton.BackColor = SideButtonColor;
+
+                HomeButton.ForeColor = Color.Black;
+                HashButton.ForeColor = Color.Black;
+                EncryptButton.ForeColor = Color.Black;
+                SettingsButton.ForeColor = Color.Black;
+                PluginButton.ForeColor = Color.Black;
+                #endregion
+
+                #region Top Header
+                BackColor = Color.White;
+                label1.ForeColor = Color.FromArgb(247, 127, 0);
+                #endregion
+
+                #region Text Labels
+                Color Label = Color.Black;
+                label13.ForeColor = Label;
+                label3.ForeColor = Label;
+                label4.ForeColor = Label;
+                label5.ForeColor = Label;
+                label6.ForeColor = Label;
+                label7.ForeColor = Label;
+                label8.ForeColor = Label;
+                label9.ForeColor = Label;
+                label10.ForeColor = Label;
+                label11.ForeColor = Label;
+                label12.ForeColor = Label;
+                label13.ForeColor = Label;
+
+                InputLabel.ForeColor = Label;
+                OutputLabel.ForeColor = Label;
+                LoadingLabel.ForeColor = Label;
+
+                KeyNoteLabel.ForeColor = Label;
+                CipherShiftLabel.ForeColor = Label;
+
+                IncludePluginAuthorCheckbox.ForeColor = Label;
+                IncludePluginInfoCheckbox.ForeColor = Label;
+                IncludePluginVersionCheckbox.ForeColor = Label;
+                checkBox1.ForeColor = Label;
+                LowercaseHashBool.ForeColor = Label;
+                #endregion
+
+                #region Regular Buttons
+                Color regularButtons = Color.FromArgb(248, 249, 250);
+
+                HashingButton.BackColor = regularButtons;
+                HashingButton.ForeColor = Label;
+                HashingButton.FlatStyle = FlatStyle.Standard;
+                HashingButton.FlatAppearance.BorderColor = regularButtons;
+
+                ClearHashString.BackColor = regularButtons;
+                ClearHashString.ForeColor = Label;
+                ClearHashString.FlatStyle = FlatStyle.Standard;
+                ClearHashString.FlatAppearance.BorderColor = regularButtons;
+
+                EncryptionButton.BackColor = regularButtons;
+                EncryptionButton.ForeColor = Label;
+                EncryptionButton.FlatStyle = FlatStyle.Standard;
+                EncryptionButton.FlatAppearance.BorderColor = regularButtons;
+
+                ClearEncryptedButton.BackColor = regularButtons;
+                ClearEncryptedButton.ForeColor = Label;
+                ClearEncryptedButton.FlatStyle = FlatStyle.Standard;
+                ClearEncryptedButton.FlatAppearance.BorderColor = regularButtons;
+
+                LoadPluginButton.BackColor = regularButtons;
+                LoadPluginButton.ForeColor = Label;
+                LoadPluginButton.FlatStyle = FlatStyle.Standard;
+                LoadPluginButton.FlatAppearance.BorderColor = regularButtons;
+
+                OpenPluginFolder.BackColor = regularButtons;
+                OpenPluginFolder.ForeColor = Label;
+                OpenPluginFolder.FlatStyle = FlatStyle.Standard;
+                OpenPluginFolder.FlatAppearance.BorderColor = regularButtons;
+
+                ApplySettingsButton.BackColor = regularButtons;
+                ApplySettingsButton.ForeColor = Label;
+                ApplySettingsButton.FlatStyle = FlatStyle.Standard;
+                ApplySettingsButton.FlatAppearance.BorderColor = regularButtons;
+
+                SubmitPluginButton.BackColor = regularButtons;
+                SubmitPluginButton.ForeColor = Label;
+                SubmitPluginButton.FlatStyle = FlatStyle.Standard;
+                SubmitPluginButton.FlatAppearance.BorderColor = regularButtons;
+
+                ClearPluginButton.BackColor = regularButtons;
+                ClearPluginButton.ForeColor = Label;
+                ClearPluginButton.FlatStyle = FlatStyle.Standard;
+                ClearPluginButton.FlatAppearance.BorderColor = regularButtons;
+
+                ReloadPluginList.BackColor = regularButtons;
+                ReloadPluginList.ForeColor = Label;
+                ReloadPluginList.FlatStyle = FlatStyle.Standard;
+                ReloadPluginList.FlatAppearance.BorderColor = regularButtons;
 
                 #endregion
 
+                #region Text Boxes
+                Color textBoxes = Color.White;
+                TextToBeHashed.BackColor = textBoxes;
+                TextToBeHashed.ForeColor = Label;
+                TextToBeHashed.BorderStyle = BorderStyle.Fixed3D;
 
+                HashedTextBox.BackColor = textBoxes;
+                HashedTextBox.ForeColor = Label;
+                HashedTextBox.BorderStyle = BorderStyle.Fixed3D;
 
+                TextToBeEncryptedTextBox.BackColor = textBoxes;
+                TextToBeEncryptedTextBox.ForeColor = Label;
+                TextToBeEncryptedTextBox.BorderStyle = BorderStyle.Fixed3D;
+
+                EncryptedTextBox.BackColor = textBoxes;
+                EncryptedTextBox.ForeColor = Label;
+                EncryptedTextBox.BorderStyle = BorderStyle.Fixed3D;
+
+                PluginInputTextBox.BackColor = textBoxes;
+                PluginInputTextBox.ForeColor = Label;
+                PluginInputTextBox.BorderStyle = BorderStyle.Fixed3D;
+
+                OutputPluginTextBox.BackColor = textBoxes;
+                OutputPluginTextBox.ForeColor = Label;
+                OutputPluginTextBox.BorderStyle = BorderStyle.Fixed3D;
+                #endregion
+
+                #region Plugin Menu
+                PluginListView.BackColor = textBoxes;
+                PluginListView.ForeColor = Label;
+
+                PluginListView.BorderStyle = BorderStyle.Fixed3D;
+                PluginListView.GridLines = true;
+                #endregion
             }
         }
 
@@ -361,6 +621,8 @@ namespace SunriseEncryption
             ApplicationSettings.ApplySettings(cfg);
             LoadSettings(true);
         }
+
+        
     }
 
     public enum Pages

@@ -88,6 +88,7 @@ namespace SunriseEncryption
             this.HomeButton = new System.Windows.Forms.Button();
             this.HorizontalDivider = new System.Windows.Forms.Panel();
             this.VerticalDivider = new System.Windows.Forms.Panel();
+            this.ReloadPluginList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SettingsPagePanel.SuspendLayout();
             this.PluginPagePanel.SuspendLayout();
@@ -124,11 +125,11 @@ namespace SunriseEncryption
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.EncryptionPagePanel);
+            this.panel1.Controls.Add(this.SettingsPagePanel);
             this.panel1.Controls.Add(this.PluginPagePanel);
             this.panel1.Controls.Add(this.HomePagePanel);
             this.panel1.Controls.Add(this.HashingPagePanel);
-            this.panel1.Controls.Add(this.EncryptionPagePanel);
-            this.panel1.Controls.Add(this.SettingsPagePanel);
             this.panel1.Location = new System.Drawing.Point(1, 176);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1261, 660);
@@ -225,6 +226,7 @@ namespace SunriseEncryption
             // 
             // PluginPagePanel
             // 
+            this.PluginPagePanel.Controls.Add(this.ReloadPluginList);
             this.PluginPagePanel.Controls.Add(this.OpenPluginFolder);
             this.PluginPagePanel.Controls.Add(this.OutputLabel);
             this.PluginPagePanel.Controls.Add(this.OutputPluginTextBox);
@@ -669,7 +671,7 @@ namespace SunriseEncryption
             this.SettingsButton.FlatAppearance.BorderSize = 0;
             this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SettingsButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsButton.Location = new System.Drawing.Point(11, 415);
+            this.SettingsButton.Location = new System.Drawing.Point(7, 415);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Size = new System.Drawing.Size(277, 70);
             this.SettingsButton.TabIndex = 5;
@@ -683,7 +685,7 @@ namespace SunriseEncryption
             this.PluginButton.FlatAppearance.BorderSize = 0;
             this.PluginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PluginButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PluginButton.Location = new System.Drawing.Point(11, 315);
+            this.PluginButton.Location = new System.Drawing.Point(7, 315);
             this.PluginButton.Name = "PluginButton";
             this.PluginButton.Size = new System.Drawing.Size(277, 70);
             this.PluginButton.TabIndex = 4;
@@ -697,7 +699,7 @@ namespace SunriseEncryption
             this.EncryptButton.FlatAppearance.BorderSize = 0;
             this.EncryptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EncryptButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptButton.Location = new System.Drawing.Point(11, 215);
+            this.EncryptButton.Location = new System.Drawing.Point(7, 215);
             this.EncryptButton.Name = "EncryptButton";
             this.EncryptButton.Size = new System.Drawing.Size(277, 70);
             this.EncryptButton.TabIndex = 2;
@@ -711,7 +713,7 @@ namespace SunriseEncryption
             this.HashButton.FlatAppearance.BorderSize = 0;
             this.HashButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HashButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HashButton.Location = new System.Drawing.Point(11, 115);
+            this.HashButton.Location = new System.Drawing.Point(7, 115);
             this.HashButton.Name = "HashButton";
             this.HashButton.Size = new System.Drawing.Size(277, 70);
             this.HashButton.TabIndex = 1;
@@ -725,7 +727,7 @@ namespace SunriseEncryption
             this.HomeButton.FlatAppearance.BorderSize = 0;
             this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HomeButton.Location = new System.Drawing.Point(11, 15);
+            this.HomeButton.Location = new System.Drawing.Point(7, 14);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(277, 70);
             this.HomeButton.TabIndex = 0;
@@ -748,6 +750,17 @@ namespace SunriseEncryption
             this.VerticalDivider.Name = "VerticalDivider";
             this.VerticalDivider.Size = new System.Drawing.Size(10, 660);
             this.VerticalDivider.TabIndex = 1;
+            // 
+            // ReloadPluginList
+            // 
+            this.ReloadPluginList.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReloadPluginList.Location = new System.Drawing.Point(279, 591);
+            this.ReloadPluginList.Name = "ReloadPluginList";
+            this.ReloadPluginList.Size = new System.Drawing.Size(128, 54);
+            this.ReloadPluginList.TabIndex = 12;
+            this.ReloadPluginList.Text = "Reload";
+            this.ReloadPluginList.UseVisualStyleBackColor = true;
+            this.ReloadPluginList.Click += new System.EventHandler(this.ReloadPluginList_Click);
             // 
             // Form1
             // 
@@ -843,6 +856,7 @@ namespace SunriseEncryption
         private System.Windows.Forms.CheckBox IncludePluginAuthorCheckbox;
         private System.Windows.Forms.CheckBox IncludePluginInfoCheckbox;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button ReloadPluginList;
     }
 }
 
