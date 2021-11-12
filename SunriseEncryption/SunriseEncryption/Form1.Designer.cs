@@ -33,6 +33,22 @@ namespace SunriseEncryption
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EncryptionPagePanel = new System.Windows.Forms.Panel();
+            this.EncryptionInstructionLabel = new System.Windows.Forms.Label();
+            this.AESKeyTextbox = new System.Windows.Forms.TextBox();
+            this.AESKeyLabel = new System.Windows.Forms.Label();
+            this.KeyNoteLabel = new System.Windows.Forms.Label();
+            this.CipherShiftTextbox = new System.Windows.Forms.TextBox();
+            this.CipherShiftLabel = new System.Windows.Forms.Label();
+            this.EncryptedTextBox = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.EncryptionTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.ClearEncryptedButton = new System.Windows.Forms.Button();
+            this.EncryptionButton = new System.Windows.Forms.Button();
+            this.TextToBeEncryptedTextBox = new System.Windows.Forms.RichTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SettingsPagePanel = new System.Windows.Forms.Panel();
             this.ApplySettingsButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -42,6 +58,7 @@ namespace SunriseEncryption
             this.IncludePluginInfoCheckbox = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.PluginPagePanel = new System.Windows.Forms.Panel();
+            this.ReloadPluginList = new System.Windows.Forms.Button();
             this.OpenPluginFolder = new System.Windows.Forms.Button();
             this.OutputLabel = new System.Windows.Forms.Label();
             this.OutputPluginTextBox = new System.Windows.Forms.RichTextBox();
@@ -67,19 +84,6 @@ namespace SunriseEncryption
             this.HashingButton = new System.Windows.Forms.Button();
             this.TextToBeHashed = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.EncryptionPagePanel = new System.Windows.Forms.Panel();
-            this.KeyNoteLabel = new System.Windows.Forms.Label();
-            this.CipherShiftTextbox = new System.Windows.Forms.TextBox();
-            this.CipherShiftLabel = new System.Windows.Forms.Label();
-            this.EncryptedTextBox = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.EncryptionTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.ClearEncryptedButton = new System.Windows.Forms.Button();
-            this.EncryptionButton = new System.Windows.Forms.Button();
-            this.TextToBeEncryptedTextBox = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.PluginButton = new System.Windows.Forms.Button();
@@ -88,13 +92,12 @@ namespace SunriseEncryption
             this.HomeButton = new System.Windows.Forms.Button();
             this.HorizontalDivider = new System.Windows.Forms.Panel();
             this.VerticalDivider = new System.Windows.Forms.Panel();
-            this.ReloadPluginList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.EncryptionPagePanel.SuspendLayout();
             this.SettingsPagePanel.SuspendLayout();
             this.PluginPagePanel.SuspendLayout();
             this.HomePagePanel.SuspendLayout();
             this.HashingPagePanel.SuspendLayout();
-            this.EncryptionPagePanel.SuspendLayout();
             this.SidePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,6 +137,182 @@ namespace SunriseEncryption
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1261, 660);
             this.panel1.TabIndex = 3;
+            // 
+            // EncryptionPagePanel
+            // 
+            this.EncryptionPagePanel.Controls.Add(this.EncryptionInstructionLabel);
+            this.EncryptionPagePanel.Controls.Add(this.AESKeyTextbox);
+            this.EncryptionPagePanel.Controls.Add(this.AESKeyLabel);
+            this.EncryptionPagePanel.Controls.Add(this.KeyNoteLabel);
+            this.EncryptionPagePanel.Controls.Add(this.CipherShiftTextbox);
+            this.EncryptionPagePanel.Controls.Add(this.CipherShiftLabel);
+            this.EncryptionPagePanel.Controls.Add(this.EncryptedTextBox);
+            this.EncryptionPagePanel.Controls.Add(this.label8);
+            this.EncryptionPagePanel.Controls.Add(this.label9);
+            this.EncryptionPagePanel.Controls.Add(this.panel4);
+            this.EncryptionPagePanel.Controls.Add(this.EncryptionTypeComboBox);
+            this.EncryptionPagePanel.Controls.Add(this.ClearEncryptedButton);
+            this.EncryptionPagePanel.Controls.Add(this.EncryptionButton);
+            this.EncryptionPagePanel.Controls.Add(this.TextToBeEncryptedTextBox);
+            this.EncryptionPagePanel.Controls.Add(this.label10);
+            this.EncryptionPagePanel.Location = new System.Drawing.Point(306, 0);
+            this.EncryptionPagePanel.Name = "EncryptionPagePanel";
+            this.EncryptionPagePanel.Size = new System.Drawing.Size(952, 657);
+            this.EncryptionPagePanel.TabIndex = 2;
+            // 
+            // EncryptionInstructionLabel
+            // 
+            this.EncryptionInstructionLabel.AutoSize = true;
+            this.EncryptionInstructionLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EncryptionInstructionLabel.Location = new System.Drawing.Point(469, 265);
+            this.EncryptionInstructionLabel.Name = "EncryptionInstructionLabel";
+            this.EncryptionInstructionLabel.Size = new System.Drawing.Size(400, 36);
+            this.EncryptionInstructionLabel.TabIndex = 15;
+            this.EncryptionInstructionLabel.Text = "<---- Select an Encryption Type!";
+            // 
+            // AESKeyTextbox
+            // 
+            this.AESKeyTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AESKeyTextbox.Location = new System.Drawing.Point(649, 265);
+            this.AESKeyTextbox.MaxLength = 99;
+            this.AESKeyTextbox.Name = "AESKeyTextbox";
+            this.AESKeyTextbox.Size = new System.Drawing.Size(249, 37);
+            this.AESKeyTextbox.TabIndex = 14;
+            // 
+            // AESKeyLabel
+            // 
+            this.AESKeyLabel.AutoSize = true;
+            this.AESKeyLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AESKeyLabel.Location = new System.Drawing.Point(469, 263);
+            this.AESKeyLabel.Name = "AESKeyLabel";
+            this.AESKeyLabel.Size = new System.Drawing.Size(116, 36);
+            this.AESKeyLabel.TabIndex = 13;
+            this.AESKeyLabel.Text = "AES Key:";
+            // 
+            // KeyNoteLabel
+            // 
+            this.KeyNoteLabel.AutoSize = true;
+            this.KeyNoteLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyNoteLabel.Location = new System.Drawing.Point(493, 263);
+            this.KeyNoteLabel.Name = "KeyNoteLabel";
+            this.KeyNoteLabel.Size = new System.Drawing.Size(0, 36);
+            this.KeyNoteLabel.TabIndex = 12;
+            // 
+            // CipherShiftTextbox
+            // 
+            this.CipherShiftTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CipherShiftTextbox.Location = new System.Drawing.Point(649, 265);
+            this.CipherShiftTextbox.MaxLength = 2;
+            this.CipherShiftTextbox.Name = "CipherShiftTextbox";
+            this.CipherShiftTextbox.Size = new System.Drawing.Size(100, 37);
+            this.CipherShiftTextbox.TabIndex = 11;
+            // 
+            // CipherShiftLabel
+            // 
+            this.CipherShiftLabel.AutoSize = true;
+            this.CipherShiftLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CipherShiftLabel.Location = new System.Drawing.Point(469, 263);
+            this.CipherShiftLabel.Name = "CipherShiftLabel";
+            this.CipherShiftLabel.Size = new System.Drawing.Size(159, 36);
+            this.CipherShiftLabel.TabIndex = 10;
+            this.CipherShiftLabel.Text = "Cipher Shift:";
+            // 
+            // EncryptedTextBox
+            // 
+            this.EncryptedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
+            this.EncryptedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EncryptedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EncryptedTextBox.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EncryptedTextBox.Location = new System.Drawing.Point(9, 415);
+            this.EncryptedTextBox.Name = "EncryptedTextBox";
+            this.EncryptedTextBox.Size = new System.Drawing.Size(922, 170);
+            this.EncryptedTextBox.TabIndex = 9;
+            this.EncryptedTextBox.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(4, 344);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(241, 41);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Encrypted Text:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(5, 258);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(211, 36);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Encryption Type:";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
+            this.panel4.Location = new System.Drawing.Point(11, 315);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(922, 10);
+            this.panel4.TabIndex = 5;
+            // 
+            // EncryptionTypeComboBox
+            // 
+            this.EncryptionTypeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EncryptionTypeComboBox.FormattingEnabled = true;
+            this.EncryptionTypeComboBox.Items.AddRange(new object[] {
+            "Caesar Cipher",
+            "OSSE"});
+            this.EncryptionTypeComboBox.Location = new System.Drawing.Point(248, 260);
+            this.EncryptionTypeComboBox.Name = "EncryptionTypeComboBox";
+            this.EncryptionTypeComboBox.Size = new System.Drawing.Size(199, 44);
+            this.EncryptionTypeComboBox.TabIndex = 4;
+            this.EncryptionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.EncryptionTypeComboBox_SelectedIndexChanged);
+            // 
+            // ClearEncryptedButton
+            // 
+            this.ClearEncryptedButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearEncryptedButton.Location = new System.Drawing.Point(703, 162);
+            this.ClearEncryptedButton.Name = "ClearEncryptedButton";
+            this.ClearEncryptedButton.Size = new System.Drawing.Size(230, 75);
+            this.ClearEncryptedButton.TabIndex = 3;
+            this.ClearEncryptedButton.Text = "Clear";
+            this.ClearEncryptedButton.UseVisualStyleBackColor = true;
+            this.ClearEncryptedButton.Click += new System.EventHandler(this.ClearEncryptedButton_Click);
+            // 
+            // EncryptionButton
+            // 
+            this.EncryptionButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EncryptionButton.Location = new System.Drawing.Point(11, 162);
+            this.EncryptionButton.Name = "EncryptionButton";
+            this.EncryptionButton.Size = new System.Drawing.Size(230, 75);
+            this.EncryptionButton.TabIndex = 2;
+            this.EncryptionButton.Text = "Encrypt";
+            this.EncryptionButton.UseVisualStyleBackColor = true;
+            this.EncryptionButton.Click += new System.EventHandler(this.EncryptionButton_Click);
+            // 
+            // TextToBeEncryptedTextBox
+            // 
+            this.TextToBeEncryptedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
+            this.TextToBeEncryptedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextToBeEncryptedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextToBeEncryptedTextBox.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextToBeEncryptedTextBox.Location = new System.Drawing.Point(11, 59);
+            this.TextToBeEncryptedTextBox.Name = "TextToBeEncryptedTextBox";
+            this.TextToBeEncryptedTextBox.Size = new System.Drawing.Size(922, 96);
+            this.TextToBeEncryptedTextBox.TabIndex = 1;
+            this.TextToBeEncryptedTextBox.Text = "";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(4, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(329, 41);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Text to be Encrypted:";
             // 
             // SettingsPagePanel
             // 
@@ -243,6 +422,17 @@ namespace SunriseEncryption
             this.PluginPagePanel.Size = new System.Drawing.Size(955, 657);
             this.PluginPagePanel.TabIndex = 2;
             // 
+            // ReloadPluginList
+            // 
+            this.ReloadPluginList.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReloadPluginList.Location = new System.Drawing.Point(279, 591);
+            this.ReloadPluginList.Name = "ReloadPluginList";
+            this.ReloadPluginList.Size = new System.Drawing.Size(128, 54);
+            this.ReloadPluginList.TabIndex = 12;
+            this.ReloadPluginList.Text = "Reload";
+            this.ReloadPluginList.UseVisualStyleBackColor = true;
+            this.ReloadPluginList.Click += new System.EventHandler(this.ReloadPluginList_Click);
+            // 
             // OpenPluginFolder
             // 
             this.OpenPluginFolder.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -266,6 +456,7 @@ namespace SunriseEncryption
             // 
             // OutputPluginTextBox
             // 
+            this.OutputPluginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OutputPluginTextBox.Location = new System.Drawing.Point(428, 415);
             this.OutputPluginTextBox.Name = "OutputPluginTextBox";
             this.OutputPluginTextBox.Size = new System.Drawing.Size(505, 222);
@@ -281,6 +472,7 @@ namespace SunriseEncryption
             this.ClearPluginButton.TabIndex = 8;
             this.ClearPluginButton.Text = "Clear";
             this.ClearPluginButton.UseVisualStyleBackColor = true;
+            this.ClearPluginButton.Click += new System.EventHandler(this.ClearPluginButton_Click);
             // 
             // SubmitPluginButton
             // 
@@ -295,6 +487,7 @@ namespace SunriseEncryption
             // 
             // PluginInputTextBox
             // 
+            this.PluginInputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PluginInputTextBox.Location = new System.Drawing.Point(428, 63);
             this.PluginInputTextBox.Name = "PluginInputTextBox";
             this.PluginInputTextBox.Size = new System.Drawing.Size(505, 222);
@@ -508,150 +701,6 @@ namespace SunriseEncryption
             this.label4.TabIndex = 0;
             this.label4.Text = "Text to be Hashed: ";
             // 
-            // EncryptionPagePanel
-            // 
-            this.EncryptionPagePanel.Controls.Add(this.KeyNoteLabel);
-            this.EncryptionPagePanel.Controls.Add(this.CipherShiftTextbox);
-            this.EncryptionPagePanel.Controls.Add(this.CipherShiftLabel);
-            this.EncryptionPagePanel.Controls.Add(this.EncryptedTextBox);
-            this.EncryptionPagePanel.Controls.Add(this.label8);
-            this.EncryptionPagePanel.Controls.Add(this.label9);
-            this.EncryptionPagePanel.Controls.Add(this.panel4);
-            this.EncryptionPagePanel.Controls.Add(this.EncryptionTypeComboBox);
-            this.EncryptionPagePanel.Controls.Add(this.ClearEncryptedButton);
-            this.EncryptionPagePanel.Controls.Add(this.EncryptionButton);
-            this.EncryptionPagePanel.Controls.Add(this.TextToBeEncryptedTextBox);
-            this.EncryptionPagePanel.Controls.Add(this.label10);
-            this.EncryptionPagePanel.Location = new System.Drawing.Point(306, 0);
-            this.EncryptionPagePanel.Name = "EncryptionPagePanel";
-            this.EncryptionPagePanel.Size = new System.Drawing.Size(952, 657);
-            this.EncryptionPagePanel.TabIndex = 2;
-            // 
-            // KeyNoteLabel
-            // 
-            this.KeyNoteLabel.AutoSize = true;
-            this.KeyNoteLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KeyNoteLabel.Location = new System.Drawing.Point(493, 263);
-            this.KeyNoteLabel.Name = "KeyNoteLabel";
-            this.KeyNoteLabel.Size = new System.Drawing.Size(0, 36);
-            this.KeyNoteLabel.TabIndex = 12;
-            // 
-            // CipherShiftTextbox
-            // 
-            this.CipherShiftTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CipherShiftTextbox.Location = new System.Drawing.Point(649, 265);
-            this.CipherShiftTextbox.MaxLength = 2;
-            this.CipherShiftTextbox.Name = "CipherShiftTextbox";
-            this.CipherShiftTextbox.Size = new System.Drawing.Size(100, 37);
-            this.CipherShiftTextbox.TabIndex = 11;
-            // 
-            // CipherShiftLabel
-            // 
-            this.CipherShiftLabel.AutoSize = true;
-            this.CipherShiftLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CipherShiftLabel.Location = new System.Drawing.Point(469, 263);
-            this.CipherShiftLabel.Name = "CipherShiftLabel";
-            this.CipherShiftLabel.Size = new System.Drawing.Size(159, 36);
-            this.CipherShiftLabel.TabIndex = 10;
-            this.CipherShiftLabel.Text = "Cipher Shift:";
-            // 
-            // EncryptedTextBox
-            // 
-            this.EncryptedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.EncryptedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EncryptedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EncryptedTextBox.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptedTextBox.Location = new System.Drawing.Point(9, 415);
-            this.EncryptedTextBox.Name = "EncryptedTextBox";
-            this.EncryptedTextBox.Size = new System.Drawing.Size(922, 170);
-            this.EncryptedTextBox.TabIndex = 9;
-            this.EncryptedTextBox.Text = "";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(4, 344);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(241, 41);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Encrypted Text:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(5, 258);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(211, 36);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Encryption Type:";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
-            this.panel4.Location = new System.Drawing.Point(11, 315);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(922, 10);
-            this.panel4.TabIndex = 5;
-            // 
-            // EncryptionTypeComboBox
-            // 
-            this.EncryptionTypeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptionTypeComboBox.FormattingEnabled = true;
-            this.EncryptionTypeComboBox.Items.AddRange(new object[] {
-            "Caesar Cipher",
-            "OSSE"});
-            this.EncryptionTypeComboBox.Location = new System.Drawing.Point(248, 260);
-            this.EncryptionTypeComboBox.Name = "EncryptionTypeComboBox";
-            this.EncryptionTypeComboBox.Size = new System.Drawing.Size(199, 44);
-            this.EncryptionTypeComboBox.TabIndex = 4;
-            this.EncryptionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.EncryptionTypeComboBox_SelectedIndexChanged);
-            // 
-            // ClearEncryptedButton
-            // 
-            this.ClearEncryptedButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearEncryptedButton.Location = new System.Drawing.Point(703, 162);
-            this.ClearEncryptedButton.Name = "ClearEncryptedButton";
-            this.ClearEncryptedButton.Size = new System.Drawing.Size(230, 75);
-            this.ClearEncryptedButton.TabIndex = 3;
-            this.ClearEncryptedButton.Text = "Clear";
-            this.ClearEncryptedButton.UseVisualStyleBackColor = true;
-            this.ClearEncryptedButton.Click += new System.EventHandler(this.ClearEncryptedButton_Click);
-            // 
-            // EncryptionButton
-            // 
-            this.EncryptionButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptionButton.Location = new System.Drawing.Point(11, 162);
-            this.EncryptionButton.Name = "EncryptionButton";
-            this.EncryptionButton.Size = new System.Drawing.Size(230, 75);
-            this.EncryptionButton.TabIndex = 2;
-            this.EncryptionButton.Text = "Encrypt";
-            this.EncryptionButton.UseVisualStyleBackColor = true;
-            this.EncryptionButton.Click += new System.EventHandler(this.EncryptionButton_Click);
-            // 
-            // TextToBeEncryptedTextBox
-            // 
-            this.TextToBeEncryptedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.TextToBeEncryptedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextToBeEncryptedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextToBeEncryptedTextBox.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextToBeEncryptedTextBox.Location = new System.Drawing.Point(11, 59);
-            this.TextToBeEncryptedTextBox.Name = "TextToBeEncryptedTextBox";
-            this.TextToBeEncryptedTextBox.Size = new System.Drawing.Size(922, 96);
-            this.TextToBeEncryptedTextBox.TabIndex = 1;
-            this.TextToBeEncryptedTextBox.Text = "";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(4, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(329, 41);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Text to be Encrypted:";
-            // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -751,23 +800,11 @@ namespace SunriseEncryption
             this.VerticalDivider.Size = new System.Drawing.Size(10, 660);
             this.VerticalDivider.TabIndex = 1;
             // 
-            // ReloadPluginList
-            // 
-            this.ReloadPluginList.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReloadPluginList.Location = new System.Drawing.Point(279, 591);
-            this.ReloadPluginList.Name = "ReloadPluginList";
-            this.ReloadPluginList.Size = new System.Drawing.Size(128, 54);
-            this.ReloadPluginList.TabIndex = 12;
-            this.ReloadPluginList.Text = "Reload";
-            this.ReloadPluginList.UseVisualStyleBackColor = true;
-            this.ReloadPluginList.Click += new System.EventHandler(this.ReloadPluginList_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1257, 826);
             this.Controls.Add(this.VerticalDivider);
@@ -776,11 +813,13 @@ namespace SunriseEncryption
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sunrise Encryption";
             this.panel1.ResumeLayout(false);
+            this.EncryptionPagePanel.ResumeLayout(false);
+            this.EncryptionPagePanel.PerformLayout();
             this.SettingsPagePanel.ResumeLayout(false);
             this.SettingsPagePanel.PerformLayout();
             this.PluginPagePanel.ResumeLayout(false);
@@ -789,8 +828,6 @@ namespace SunriseEncryption
             this.HomePagePanel.PerformLayout();
             this.HashingPagePanel.ResumeLayout(false);
             this.HashingPagePanel.PerformLayout();
-            this.EncryptionPagePanel.ResumeLayout(false);
-            this.EncryptionPagePanel.PerformLayout();
             this.SidePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -857,6 +894,9 @@ namespace SunriseEncryption
         private System.Windows.Forms.CheckBox IncludePluginInfoCheckbox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button ReloadPluginList;
+        private System.Windows.Forms.TextBox AESKeyTextbox;
+        private System.Windows.Forms.Label AESKeyLabel;
+        private System.Windows.Forms.Label EncryptionInstructionLabel;
     }
 }
 

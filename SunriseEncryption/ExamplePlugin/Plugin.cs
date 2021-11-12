@@ -12,15 +12,17 @@ namespace ExamplePlugin
     {
         public static object Load(string input) 
         {
-            return $"Example Plugin Response : " + input.Length;
+            char[] charArray = input.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
         public static void Initalize() 
         {
             Toasting toast = new Toasting();
-            toast.AddPluginName("ExamplePlugin");
+            toast.AddPluginName("String Reverse");
             toast.AddPluginAuthor("Monarch TSA");
             toast.AddPluginVersion("1.0.0");
-            toast.AddPluginInfo("An Example Plugin");
+            toast.AddPluginInfo("Reverse your Input String!");
 
             toast.Load();
         }

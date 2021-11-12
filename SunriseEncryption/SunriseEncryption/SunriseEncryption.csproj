@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncryptionMethods\CaesarCipher.cs" />
+    <Compile Include="EncryptionMethods\Encryption.cs" />
     <Compile Include="EncryptionMethods\Hashing.cs" />
     <Compile Include="EncryptionMethods\OSSE.cs" />
     <Compile Include="Form1.cs">

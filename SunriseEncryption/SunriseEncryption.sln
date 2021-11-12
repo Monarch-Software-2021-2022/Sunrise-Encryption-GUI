@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamplePlugin", "ExamplePlu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uwuTranslator", "uwuTranslator\uwuTranslator.csproj", "{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedPlugin", "AdvancedPlugin\AdvancedPlugin.csproj", "{B6094DEC-F44B-46DB-9D05-2703F5501E2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4DD3F4C-6F5A-45C7-BCF4-87BCC44B2C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6094DEC-F44B-46DB-9D05-2703F5501E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6094DEC-F44B-46DB-9D05-2703F5501E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6094DEC-F44B-46DB-9D05-2703F5501E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6094DEC-F44B-46DB-9D05-2703F5501E2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

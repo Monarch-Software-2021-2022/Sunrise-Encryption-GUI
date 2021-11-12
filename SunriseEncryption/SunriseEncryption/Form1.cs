@@ -112,6 +112,7 @@ namespace SunriseEncryption
                     break;
                 case Pages.Encryption:
                     EncryptionPagePanel.Show();
+                    LoadingEncryptionPage();
                     break;
                 case Pages.Plugins:
                     PluginPagePanel.Show();
@@ -171,27 +172,58 @@ namespace SunriseEncryption
             TextToBeHashed.Clear();
         }
 
+        private void LoadingEncryptionPage()
+        {
+            KeyNoteLabel.Hide();
+            CipherShiftTextbox.Hide();
+            CipherShiftLabel.Hide();
+            AESKeyTextbox.Hide();
+            AESKeyLabel.Hide();
+
+            if (EncryptionTypeComboBox.SelectedItem == null)
+                EncryptionInstructionLabel.Show();
+            else
+                EncryptionInstructionLabel.Hide();
+
+        }
+
         private void EncryptionTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            KeyNoteLabel.Hide();
+            CipherShiftTextbox.Hide();
+            CipherShiftLabel.Hide();
+            AESKeyTextbox.Hide();
+            EncryptionInstructionLabel.Hide();
+            AESKeyLabel.Hide();
+
+
             if (EncryptionTypeComboBox.SelectedItem == "Caesar Cipher")
             {
                 CipherShiftLabel.Show();
                 CipherShiftTextbox.Show();
-                KeyNoteLabel.Hide();
             }
             else if (EncryptionTypeComboBox.SelectedItem == "OSSE")
             {
                 KeyNoteLabel.Text = "There is no official decoder for OSSE";
                 KeyNoteLabel.Show();
-
-                CipherShiftTextbox.Hide();
-                CipherShiftLabel.Hide();
             }
+            else if (EncryptionTypeComboBox.SelectedItem == "AES Encryption")
+            {
+                AESKeyLabel.Show();
+                AESKeyTextbox.Show();
+            }
+            else if (EncryptionTypeComboBox.SelectedItem == "AES Decryption")
+            {
+                AESKeyLabel.Show();
+                AESKeyTextbox.Show();
+            }
+
             else
             {
                 CipherShiftTextbox.Hide();
                 CipherShiftLabel.Hide();
                 KeyNoteLabel.Hide();
+                EncryptionInstructionLabel.Show();
             }
         }
 
@@ -213,6 +245,13 @@ namespace SunriseEncryption
                 case 1:
                     // OSSE Encryption
                     encryptedText = OSSE.Encryptor(TextToBeEncryptedTextBox.Text);
+                    break;
+                case 2:
+                    // AES Encryption
+                    encryptedText = Encryption.AESEncryption(AESKeyTextbox.Text, TextToBeEncryptedTextBox.Text);
+                    break;
+                case 3:
+                    encryptedText = Encryption.AESDecryptionMethod(AESKeyTextbox.Text, TextToBeEncryptedTextBox.Text);
                     break;
             }
 
@@ -337,6 +376,8 @@ namespace SunriseEncryption
                 IncludePluginVersionCheckbox.ForeColor = Label;
                 checkBox1.ForeColor = Label;
                 LowercaseHashBool.ForeColor = Label;
+                EncryptionInstructionLabel.ForeColor = Label;
+                AESKeyLabel.ForeColor = Label;
                 #endregion
 
                 #region Regular Buttons
@@ -419,6 +460,8 @@ namespace SunriseEncryption
                 OutputPluginTextBox.ForeColor = Label;
                 OutputPluginTextBox.BorderStyle = BorderStyle.None;
 
+                AESKeyTextbox.BackColor = textBoxes;
+                AESKeyTextbox.ForeColor = Label;
 
                 #endregion
 
@@ -429,6 +472,16 @@ namespace SunriseEncryption
                 PluginListView.BorderStyle = BorderStyle.None;
 
                 PluginListView.HideSelection = true;
+                #endregion
+
+                #region Drop Downs & Other Text Boxes
+                EncryptionTypeComboBox.BackColor = textBoxes;
+                EncryptionTypeComboBox.ForeColor = Label;
+                EncryptionTypeComboBox.FlatStyle = FlatStyle.Flat;
+
+                CipherShiftTextbox.BackColor = textBoxes;
+                CipherShiftTextbox.ForeColor = Label;
+                CipherShiftTextbox.BorderStyle = BorderStyle.None;
                 #endregion
             }
 
@@ -589,6 +642,16 @@ namespace SunriseEncryption
                 PluginListView.BorderStyle = BorderStyle.Fixed3D;
                 PluginListView.GridLines = true;
                 #endregion
+
+                #region Drop Downs & Other Text Boxes
+                EncryptionTypeComboBox.BackColor = textBoxes;
+                EncryptionTypeComboBox.ForeColor = Label;
+                EncryptionTypeComboBox.FlatStyle = FlatStyle.System;
+
+                CipherShiftTextbox.BackColor = textBoxes;
+                CipherShiftTextbox.ForeColor = Label;
+                CipherShiftTextbox.BorderStyle = BorderStyle.Fixed3D;
+                #endregion
             }
         }
 
@@ -622,7 +685,11 @@ namespace SunriseEncryption
             LoadSettings(true);
         }
 
-        
+        private void ClearPluginButton_Click(object sender, EventArgs e)
+        {
+            PluginInputTextBox.Clear();
+            OutputPluginTextBox.Clear();
+        }
     }
 
     public enum Pages
