@@ -22,10 +22,11 @@ namespace SunriseEncryption.Settings
                     PluginVersionEnabled = false,
                     DarkThemeEnabled = false
                 };
-
+                
+                JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
                 using (StreamWriter sw = new StreamWriter(appSettings))
                 {
-                    sw.WriteLine(JsonSerializer.Serialize(newCfg));
+                    sw.WriteLine(JsonSerializer.Serialize(newCfg, options));
                     sw.Close();
                 }
             }
@@ -43,9 +44,10 @@ namespace SunriseEncryption.Settings
         public static void ApplySettings(Config cfg)
         {
             File.Delete(appSettings);
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             using (StreamWriter sw = new StreamWriter(appSettings))
             {
-                sw.WriteLine(JsonSerializer.Serialize(cfg));
+                sw.WriteLine(JsonSerializer.Serialize(cfg, options));
                 sw.Close();
             }
 
