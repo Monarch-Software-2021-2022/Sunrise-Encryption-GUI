@@ -1,39 +1,18 @@
 # Sunrise-Encryption-GUI
 For the TSA Project 2021-2022
 
-## Current Functions
-
-**Hashing Methods**
-- MD5
-- SHA1
-- SHA256
-- SHA384
-- SHA512
-- RIPEMD160
-
-**Encryption Methods**
-- OSSE
-- Caesar Cipher
-
-**Plugin Support**
-- Load & Initalize Plugins
-- Dedicated Info Files for Plugins
-
-**Other**
-- Dark Theme
-- Settings
-- Plugin Framework isnt getting faster than what it currently is
-
-## What needs to be completed
-
-- More Encryption Methods
-- Better Icons & Thumbnails
-
-## What I would like to be done
-
-- Better Plugin Framework
-
 ## Credits
 
 - Lead Project / Programmer : Robert Thompson
 - Programmer / Artist : Skylar Friar
+
+## Summary
+Sunrise Encryption is software written for the sole purpose of encrypting data. What makes Sunrise Encryption different from other software, is that we have a built in framework for plugins. So anyone can easily make their own plugins for encrypting data, and it will work automatically with the software. 
+
+Sunrise Encryption supports both Windows and Linux operating systems.
+
+## Advantages of Sunrise
+
+With the support of plugins, you are able to create your own encryption types specifically suited to the users needs.
+
+Espcially with the addition of Linux Suport, you are able to add arguments to your program, to specific types of encrypytion, plugins, and choosing the type of output. This would be especially useful for users who need choose to plug Sunrise Encryption in directly with another program.
