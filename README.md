@@ -18,7 +18,7 @@ With the support of plugins, you are able to create your own encryption types sp
 Espcially with the addition of Linux Suport, you are able to add arguments to your program, to specific types of encrypytion, plugins, and choosing the type of output. This would be especially useful for users who need choose to plug Sunrise Encryption in directly with another program.
 
 
-Features:
+### Features:
 
 - [ ] - Custom Scripting Language 
 - [ ] - Reworked Framework with more security in mind 
