@@ -25,7 +25,7 @@ Espcially with the addition of Linux Suport, you are able to add arguments to yo
   - [X] - Successful test of the EXPLORE Framework 
   - [X] - Client Application able to execute plugin without errors or issues
   - [ ] - Implement Custom Scripting Language into Plugin Framework
-  - [ ] - More Event Methods
+  - [X] - More Event Methods
   - [ ] - Documentation w/ Code Examples
 - [ ] - Secure Files
 - [ ] - File Encryption w/ Password
