@@ -50,25 +50,20 @@ namespace SunriseEncryption
             PluginListView.Columns.Add("Plugin", 150);
             if (ApplicationSettings.PluginInfo)
                 PluginListView.Columns.Add("Info", 150);
-            if (ApplicationSettings.PluginAuthor)
-                PluginListView.Columns.Add("Author", 150);
             if (ApplicationSettings.PluginVersion)
                 PluginListView.Columns.Add("Version", 150);
 
-            LoadPlugin.CheckPluginAvailability();
-            InitalizePlugin.Initalize();
-            foreach (string plugin in LoadPlugin.AvailablePlugins)
+            LoadPlugin.InitalizeAvaliablePlugins();
+
+            for (int i = 0; i < LoadPlugin.Plugins.Count; i++)
             {
+                EXPLORE.Plugin plugin = LoadPlugin.Plugins[i];
                 string[] arr = new string[5];
                 ListViewItem item;
 
-                arr[0] = plugin.Split('\\').Last();
-                if (ApplicationSettings.PluginInfo)
-                    arr[1] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginInfo);
-                if (ApplicationSettings.PluginAuthor)
-                    arr[2] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginAuthor);
-                if (ApplicationSettings.PluginVersion)
-                    arr[3] = LoadPluginData.GetPluginData(plugin.Split('\\').Last().Replace(".dll", ""), PluginData.PluginVersion);
+                arr[0] = plugin.PluginName;
+                if (ApplicationSettings.PluginInfo) arr[1] = plugin.PluginDescription;
+                if (ApplicationSettings.PluginAuthor) arr[2] = plugin.Version.ToString();
 
                 item = new ListViewItem(arr);
                 PluginListView.Items.Add(item);
@@ -177,8 +172,6 @@ namespace SunriseEncryption
             KeyNoteLabel.Hide();
             CipherShiftTextbox.Hide();
             CipherShiftLabel.Hide();
-            AESKeyTextbox.Hide();
-            AESKeyLabel.Hide();
 
             if (EncryptionTypeComboBox.SelectedItem == null)
                 EncryptionInstructionLabel.Show();
@@ -192,30 +185,26 @@ namespace SunriseEncryption
             KeyNoteLabel.Hide();
             CipherShiftTextbox.Hide();
             CipherShiftLabel.Hide();
-            AESKeyTextbox.Hide();
             EncryptionInstructionLabel.Hide();
-            AESKeyLabel.Hide();
 
 
             if (EncryptionTypeComboBox.SelectedItem == "Caesar Cipher")
             {
                 CipherShiftLabel.Show();
+                CipherShiftLabel.Text = "Caesar Shift";
                 CipherShiftTextbox.Show();
             }
-            else if (EncryptionTypeComboBox.SelectedItem == "OSSE")
+            else if (EncryptionTypeComboBox.SelectedItem == "DSEA (Encrypt)")
             {
-                KeyNoteLabel.Text = "There is no official decoder for OSSE";
-                KeyNoteLabel.Show();
+                CipherShiftLabel.Show();
+                CipherShiftLabel.Text = "DSEA Shift (1 - 26)";
+                CipherShiftTextbox.Show();
             }
-            else if (EncryptionTypeComboBox.SelectedItem == "AES Encryption")
+            else if (EncryptionTypeComboBox.SelectedItem == "DSEA (Decrypt)")
             {
-                AESKeyLabel.Show();
-                AESKeyTextbox.Show();
-            }
-            else if (EncryptionTypeComboBox.SelectedItem == "AES Decryption")
-            {
-                AESKeyLabel.Show();
-                AESKeyTextbox.Show();
+                CipherShiftLabel.Show();
+                CipherShiftLabel.Text = "DSEA Shift (1 - 26)";
+                CipherShiftTextbox.Show();
             }
 
             else
@@ -243,15 +232,26 @@ namespace SunriseEncryption
                     }
                     break;
                 case 1:
-                    // OSSE Encryption
-                    encryptedText = OSSE.Encryptor(TextToBeEncryptedTextBox.Text);
+                    // DSEA ENCRYPT
+                    int EncryptKeyShift = 0;
+                    if (int.TryParse(CipherShiftTextbox.Text, out EncryptKeyShift)) {
+                        DSEA sea = new DSEA(TextToBeEncryptedTextBox.Text, EncryptKeyShift);
+                        encryptedText = sea.EncryptMessage();
+                    }
+                    else
+                        encryptedText = "Invalid Shift!";
+
                     break;
                 case 2:
-                    // AES Encryption
-                    encryptedText = Encryption.AESEncryption(AESKeyTextbox.Text, TextToBeEncryptedTextBox.Text);
-                    break;
-                case 3:
-                    encryptedText = Encryption.AESDecryptionMethod(AESKeyTextbox.Text, TextToBeEncryptedTextBox.Text);
+                    // DSEA DECRYPT
+                    int DecryptKeyShift = 0;
+                    if (int.TryParse(CipherShiftTextbox.Text, out DecryptKeyShift))
+                    {
+                        DSEA sea = new DSEA(TextToBeEncryptedTextBox.Text, DecryptKeyShift);
+                        encryptedText = sea.DecryptMessage();
+                    }
+                    else
+                        encryptedText = "Invalid Shift!";
                     break;
             }
 
@@ -285,7 +285,7 @@ namespace SunriseEncryption
         private void SubmitPluginButton_Click(object sender, EventArgs e)
         {
             string text = PluginInputTextBox.Text;
-            object returnOutput = LoadPlugin.Load(Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Plugins"), SelectedPlugin), text);
+            object returnOutput = LoadPlugin.Plugins.Find(x => x.PluginName == SelectedPlugin).ExecutePluginEvent(text);
 
             OutputPluginTextBox.Text = returnOutput.ToString();
         }
@@ -377,7 +377,6 @@ namespace SunriseEncryption
                 checkBox1.ForeColor = Label;
                 LowercaseHashBool.ForeColor = Label;
                 EncryptionInstructionLabel.ForeColor = Label;
-                AESKeyLabel.ForeColor = Label;
                 #endregion
 
                 #region Regular Buttons
@@ -459,9 +458,6 @@ namespace SunriseEncryption
                 OutputPluginTextBox.BackColor = textBoxes;
                 OutputPluginTextBox.ForeColor = Label;
                 OutputPluginTextBox.BorderStyle = BorderStyle.None;
-
-                AESKeyTextbox.BackColor = textBoxes;
-                AESKeyTextbox.ForeColor = Label;
 
                 #endregion
 
@@ -689,6 +685,16 @@ namespace SunriseEncryption
         {
             PluginInputTextBox.Clear();
             OutputPluginTextBox.Clear();
+        }
+
+        private void CipherShiftTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

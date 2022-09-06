@@ -10,55 +10,24 @@ namespace SunriseEncryption.Plugin
 {
     public class LoadPlugin
     {
-        public static void CheckPluginAvailability()
+        internal static List<EXPLORE.Plugin> Plugins = new List<EXPLORE.Plugin>();
+
+        private static string PluginDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Plugins");
+        public static void InitalizeAvaliablePlugins()
         {
-            foreach (var files in Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Plugins")))
+            Plugins.Clear();
+            string[] allFiles = Directory.GetFiles(PluginDirectory);
+            for (int i = 0; i < allFiles.Length; i++)
             {
-                if (files.Contains(".dll") && !files.Contains("Toaster"))
-                {
-                    try
-                    {
-                        // Potential Plugin
-                        Assembly assembly = Assembly.LoadFrom(files);
-                        Type[] AssemblyType = assembly.GetTypes();
+                string fileName = allFiles[i];
+                if (!fileName.Contains(".dll") || fileName.Contains("EXPLORE"))
+                    continue;
 
-                        int requiredMethods = 0;
-                        foreach (var typeClass in AssemblyType)
-                        {
-                            foreach (var method in typeClass.GetMethods())
-                            {
-                                if (method.Name == "Initalize")
-                                    requiredMethods += 1;
-
-                                if (method.Name == "Load")
-                                    requiredMethods += 1;
-                            }
-                        }
-
-                        if (requiredMethods == 2)
-                        {
-                            if (!AvailablePlugins.Contains(files))
-                                AvailablePlugins.Add(files);
-                        }
-                    }
-                    catch { }
-                }
+                EXPLORE.Plugin plugin = new EXPLORE.Plugin(fileName);
+                Plugins.Add(plugin);
             }
         }
+        public static object OnPluginExecute(EXPLORE.Plugin plugin, string input) => plugin.ExecutePluginEvent(input);
 
-        internal static List<string> AvailablePlugins = new List<string>();
-
-        public static object Load(string DLL_Location, string input)
-        {
-            Assembly assembly = Assembly.LoadFrom(DLL_Location);
-            Type[] AssemblyType = assembly.GetTypes();
-            foreach (var type in AssemblyType) {
-                foreach (var method in type.GetMethods()) {
-                    if (method.Name == "Load")
-                        return method.Invoke(null, new object[] { input });
-                }
-            }
-            return null;
-        }
     }
 }

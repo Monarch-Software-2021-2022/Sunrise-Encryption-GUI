@@ -33,10 +33,23 @@ namespace SunriseEncryption
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.HomePagePanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.HashingPagePanel = new System.Windows.Forms.Panel();
+            this.HashedTextBox = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LowercaseHashBool = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.HashTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.ClearHashString = new System.Windows.Forms.Button();
+            this.HashingButton = new System.Windows.Forms.Button();
+            this.TextToBeHashed = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.EncryptionPagePanel = new System.Windows.Forms.Panel();
             this.EncryptionInstructionLabel = new System.Windows.Forms.Label();
-            this.AESKeyTextbox = new System.Windows.Forms.TextBox();
-            this.AESKeyLabel = new System.Windows.Forms.Label();
             this.KeyNoteLabel = new System.Windows.Forms.Label();
             this.CipherShiftTextbox = new System.Windows.Forms.TextBox();
             this.CipherShiftLabel = new System.Windows.Forms.Label();
@@ -70,20 +83,6 @@ namespace SunriseEncryption
             this.LoadPluginButton = new System.Windows.Forms.Button();
             this.PluginListView = new System.Windows.Forms.ListView();
             this.label12 = new System.Windows.Forms.Label();
-            this.HomePagePanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.HashingPagePanel = new System.Windows.Forms.Panel();
-            this.HashedTextBox = new System.Windows.Forms.RichTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.LowercaseHashBool = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.HashTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.ClearHashString = new System.Windows.Forms.Button();
-            this.HashingButton = new System.Windows.Forms.Button();
-            this.TextToBeHashed = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.PluginButton = new System.Windows.Forms.Button();
@@ -92,13 +91,16 @@ namespace SunriseEncryption
             this.HomeButton = new System.Windows.Forms.Button();
             this.HorizontalDivider = new System.Windows.Forms.Panel();
             this.VerticalDivider = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.HomePagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.HashingPagePanel.SuspendLayout();
             this.EncryptionPagePanel.SuspendLayout();
             this.SettingsPagePanel.SuspendLayout();
             this.PluginPagePanel.SuspendLayout();
-            this.HomePagePanel.SuspendLayout();
-            this.HashingPagePanel.SuspendLayout();
             this.SidePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,7 +109,7 @@ namespace SunriseEncryption
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(214, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(570, 81);
             this.label1.TabIndex = 1;
@@ -119,7 +121,7 @@ namespace SunriseEncryption
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(163)))), ((int)(((byte)(7)))));
-            this.label2.Location = new System.Drawing.Point(17, 90);
+            this.label2.Location = new System.Drawing.Point(219, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(523, 54);
             this.label2.TabIndex = 2;
@@ -128,21 +130,186 @@ namespace SunriseEncryption
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.HomePagePanel);
+            this.panel1.Controls.Add(this.HashingPagePanel);
             this.panel1.Controls.Add(this.EncryptionPagePanel);
             this.panel1.Controls.Add(this.SettingsPagePanel);
             this.panel1.Controls.Add(this.PluginPagePanel);
-            this.panel1.Controls.Add(this.HomePagePanel);
-            this.panel1.Controls.Add(this.HashingPagePanel);
             this.panel1.Location = new System.Drawing.Point(1, 176);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1261, 660);
             this.panel1.TabIndex = 3;
             // 
+            // HomePagePanel
+            // 
+            this.HomePagePanel.Controls.Add(this.pictureBox2);
+            this.HomePagePanel.Controls.Add(this.label7);
+            this.HomePagePanel.Controls.Add(this.label3);
+            this.HomePagePanel.Location = new System.Drawing.Point(306, 3);
+            this.HomePagePanel.Name = "HomePagePanel";
+            this.HomePagePanel.Size = new System.Drawing.Size(955, 657);
+            this.HomePagePanel.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(214, 240);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(418, 394);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Malgun Gothic Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(2, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(931, 226);
+            this.label7.TabIndex = 1;
+            this.label7.Text = resources.GetString("label7.Text");
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(359, 54);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Sunrise Encryption";
+            // 
+            // HashingPagePanel
+            // 
+            this.HashingPagePanel.Controls.Add(this.HashedTextBox);
+            this.HashingPagePanel.Controls.Add(this.label6);
+            this.HashingPagePanel.Controls.Add(this.LowercaseHashBool);
+            this.HashingPagePanel.Controls.Add(this.label5);
+            this.HashingPagePanel.Controls.Add(this.panel2);
+            this.HashingPagePanel.Controls.Add(this.HashTypeComboBox);
+            this.HashingPagePanel.Controls.Add(this.ClearHashString);
+            this.HashingPagePanel.Controls.Add(this.HashingButton);
+            this.HashingPagePanel.Controls.Add(this.TextToBeHashed);
+            this.HashingPagePanel.Controls.Add(this.label4);
+            this.HashingPagePanel.Location = new System.Drawing.Point(306, 0);
+            this.HashingPagePanel.Name = "HashingPagePanel";
+            this.HashingPagePanel.Size = new System.Drawing.Size(952, 657);
+            this.HashingPagePanel.TabIndex = 1;
+            // 
+            // HashedTextBox
+            // 
+            this.HashedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
+            this.HashedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HashedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.HashedTextBox.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HashedTextBox.Location = new System.Drawing.Point(9, 415);
+            this.HashedTextBox.Name = "HashedTextBox";
+            this.HashedTextBox.Size = new System.Drawing.Size(922, 170);
+            this.HashedTextBox.TabIndex = 9;
+            this.HashedTextBox.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(4, 344);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(204, 41);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Hashed Text:";
+            // 
+            // LowercaseHashBool
+            // 
+            this.LowercaseHashBool.AutoSize = true;
+            this.LowercaseHashBool.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LowercaseHashBool.Location = new System.Drawing.Point(394, 257);
+            this.LowercaseHashBool.Name = "LowercaseHashBool";
+            this.LowercaseHashBool.Size = new System.Drawing.Size(230, 40);
+            this.LowercaseHashBool.TabIndex = 7;
+            this.LowercaseHashBool.Text = "Lowercase Hash";
+            this.LowercaseHashBool.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(5, 258);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 36);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Hash Type: ";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
+            this.panel2.Location = new System.Drawing.Point(11, 315);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(922, 10);
+            this.panel2.TabIndex = 5;
+            // 
+            // HashTypeComboBox
+            // 
+            this.HashTypeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HashTypeComboBox.FormattingEnabled = true;
+            this.HashTypeComboBox.Items.AddRange(new object[] {
+            "MD5",
+            "SHA1",
+            "SHA256",
+            "SHA384",
+            "SHA512",
+            "RIPEMD160"});
+            this.HashTypeComboBox.Location = new System.Drawing.Point(166, 260);
+            this.HashTypeComboBox.Name = "HashTypeComboBox";
+            this.HashTypeComboBox.Size = new System.Drawing.Size(199, 44);
+            this.HashTypeComboBox.TabIndex = 4;
+            // 
+            // ClearHashString
+            // 
+            this.ClearHashString.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearHashString.Location = new System.Drawing.Point(703, 162);
+            this.ClearHashString.Name = "ClearHashString";
+            this.ClearHashString.Size = new System.Drawing.Size(230, 75);
+            this.ClearHashString.TabIndex = 3;
+            this.ClearHashString.Text = "Clear";
+            this.ClearHashString.UseVisualStyleBackColor = true;
+            this.ClearHashString.Click += new System.EventHandler(this.ClearHashString_Click);
+            // 
+            // HashingButton
+            // 
+            this.HashingButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HashingButton.Location = new System.Drawing.Point(11, 162);
+            this.HashingButton.Name = "HashingButton";
+            this.HashingButton.Size = new System.Drawing.Size(230, 75);
+            this.HashingButton.TabIndex = 2;
+            this.HashingButton.Text = "Hash";
+            this.HashingButton.UseVisualStyleBackColor = true;
+            this.HashingButton.Click += new System.EventHandler(this.HashingButton_Click);
+            // 
+            // TextToBeHashed
+            // 
+            this.TextToBeHashed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
+            this.TextToBeHashed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextToBeHashed.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextToBeHashed.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextToBeHashed.Location = new System.Drawing.Point(11, 59);
+            this.TextToBeHashed.Name = "TextToBeHashed";
+            this.TextToBeHashed.Size = new System.Drawing.Size(922, 96);
+            this.TextToBeHashed.TabIndex = 1;
+            this.TextToBeHashed.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(4, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(303, 41);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Text to be Hashed: ";
+            // 
             // EncryptionPagePanel
             // 
             this.EncryptionPagePanel.Controls.Add(this.EncryptionInstructionLabel);
-            this.EncryptionPagePanel.Controls.Add(this.AESKeyTextbox);
-            this.EncryptionPagePanel.Controls.Add(this.AESKeyLabel);
             this.EncryptionPagePanel.Controls.Add(this.KeyNoteLabel);
             this.EncryptionPagePanel.Controls.Add(this.CipherShiftTextbox);
             this.EncryptionPagePanel.Controls.Add(this.CipherShiftLabel);
@@ -163,31 +330,12 @@ namespace SunriseEncryption
             // EncryptionInstructionLabel
             // 
             this.EncryptionInstructionLabel.AutoSize = true;
-            this.EncryptionInstructionLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncryptionInstructionLabel.Location = new System.Drawing.Point(469, 265);
+            this.EncryptionInstructionLabel.Font = new System.Drawing.Font("Malgun Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EncryptionInstructionLabel.Location = new System.Drawing.Point(481, 264);
             this.EncryptionInstructionLabel.Name = "EncryptionInstructionLabel";
-            this.EncryptionInstructionLabel.Size = new System.Drawing.Size(400, 36);
+            this.EncryptionInstructionLabel.Size = new System.Drawing.Size(500, 38);
             this.EncryptionInstructionLabel.TabIndex = 15;
-            this.EncryptionInstructionLabel.Text = "<---- Select an Encryption Type!";
-            // 
-            // AESKeyTextbox
-            // 
-            this.AESKeyTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AESKeyTextbox.Location = new System.Drawing.Point(649, 265);
-            this.AESKeyTextbox.MaxLength = 99;
-            this.AESKeyTextbox.Name = "AESKeyTextbox";
-            this.AESKeyTextbox.Size = new System.Drawing.Size(249, 37);
-            this.AESKeyTextbox.TabIndex = 14;
-            // 
-            // AESKeyLabel
-            // 
-            this.AESKeyLabel.AutoSize = true;
-            this.AESKeyLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AESKeyLabel.Location = new System.Drawing.Point(469, 263);
-            this.AESKeyLabel.Name = "AESKeyLabel";
-            this.AESKeyLabel.Size = new System.Drawing.Size(116, 36);
-            this.AESKeyLabel.TabIndex = 13;
-            this.AESKeyLabel.Text = "AES Key:";
+            this.EncryptionInstructionLabel.Text = "<---- Select an Encryption Type!       ";
             // 
             // KeyNoteLabel
             // 
@@ -201,17 +349,18 @@ namespace SunriseEncryption
             // CipherShiftTextbox
             // 
             this.CipherShiftTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CipherShiftTextbox.Location = new System.Drawing.Point(649, 265);
+            this.CipherShiftTextbox.Location = new System.Drawing.Point(725, 265);
             this.CipherShiftTextbox.MaxLength = 2;
             this.CipherShiftTextbox.Name = "CipherShiftTextbox";
-            this.CipherShiftTextbox.Size = new System.Drawing.Size(100, 37);
+            this.CipherShiftTextbox.Size = new System.Drawing.Size(205, 37);
             this.CipherShiftTextbox.TabIndex = 11;
+            this.CipherShiftTextbox.TextChanged += new System.EventHandler(this.CipherShiftTextbox_TextChanged);
             // 
             // CipherShiftLabel
             // 
             this.CipherShiftLabel.AutoSize = true;
             this.CipherShiftLabel.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CipherShiftLabel.Location = new System.Drawing.Point(469, 263);
+            this.CipherShiftLabel.Location = new System.Drawing.Point(482, 265);
             this.CipherShiftLabel.Name = "CipherShiftLabel";
             this.CipherShiftLabel.Size = new System.Drawing.Size(159, 36);
             this.CipherShiftLabel.TabIndex = 10;
@@ -263,10 +412,11 @@ namespace SunriseEncryption
             this.EncryptionTypeComboBox.FormattingEnabled = true;
             this.EncryptionTypeComboBox.Items.AddRange(new object[] {
             "Caesar Cipher",
-            "OSSE"});
+            "DSEA (Encrypt)",
+            "DSEA (Decrypt)"});
             this.EncryptionTypeComboBox.Location = new System.Drawing.Point(248, 260);
             this.EncryptionTypeComboBox.Name = "EncryptionTypeComboBox";
-            this.EncryptionTypeComboBox.Size = new System.Drawing.Size(199, 44);
+            this.EncryptionTypeComboBox.Size = new System.Drawing.Size(215, 44);
             this.EncryptionTypeComboBox.TabIndex = 4;
             this.EncryptionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.EncryptionTypeComboBox_SelectedIndexChanged);
             // 
@@ -545,162 +695,6 @@ namespace SunriseEncryption
             this.label12.TabIndex = 0;
             this.label12.Text = "Plugin List:";
             // 
-            // HomePagePanel
-            // 
-            this.HomePagePanel.Controls.Add(this.label7);
-            this.HomePagePanel.Controls.Add(this.label3);
-            this.HomePagePanel.Location = new System.Drawing.Point(306, 3);
-            this.HomePagePanel.Name = "HomePagePanel";
-            this.HomePagePanel.Size = new System.Drawing.Size(955, 657);
-            this.HomePagePanel.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Malgun Gothic Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(931, 226);
-            this.label7.TabIndex = 1;
-            this.label7.Text = resources.GetString("label7.Text");
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(359, 54);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Sunrise Encryption";
-            // 
-            // HashingPagePanel
-            // 
-            this.HashingPagePanel.Controls.Add(this.HashedTextBox);
-            this.HashingPagePanel.Controls.Add(this.label6);
-            this.HashingPagePanel.Controls.Add(this.LowercaseHashBool);
-            this.HashingPagePanel.Controls.Add(this.label5);
-            this.HashingPagePanel.Controls.Add(this.panel2);
-            this.HashingPagePanel.Controls.Add(this.HashTypeComboBox);
-            this.HashingPagePanel.Controls.Add(this.ClearHashString);
-            this.HashingPagePanel.Controls.Add(this.HashingButton);
-            this.HashingPagePanel.Controls.Add(this.TextToBeHashed);
-            this.HashingPagePanel.Controls.Add(this.label4);
-            this.HashingPagePanel.Location = new System.Drawing.Point(306, 0);
-            this.HashingPagePanel.Name = "HashingPagePanel";
-            this.HashingPagePanel.Size = new System.Drawing.Size(952, 657);
-            this.HashingPagePanel.TabIndex = 1;
-            // 
-            // HashedTextBox
-            // 
-            this.HashedTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.HashedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HashedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.HashedTextBox.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HashedTextBox.Location = new System.Drawing.Point(9, 415);
-            this.HashedTextBox.Name = "HashedTextBox";
-            this.HashedTextBox.Size = new System.Drawing.Size(922, 170);
-            this.HashedTextBox.TabIndex = 9;
-            this.HashedTextBox.Text = "";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 344);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(204, 41);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Hashed Text:";
-            // 
-            // LowercaseHashBool
-            // 
-            this.LowercaseHashBool.AutoSize = true;
-            this.LowercaseHashBool.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LowercaseHashBool.Location = new System.Drawing.Point(394, 257);
-            this.LowercaseHashBool.Name = "LowercaseHashBool";
-            this.LowercaseHashBool.Size = new System.Drawing.Size(230, 40);
-            this.LowercaseHashBool.TabIndex = 7;
-            this.LowercaseHashBool.Text = "Lowercase Hash";
-            this.LowercaseHashBool.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 258);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 36);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Hash Type: ";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(196)))), ((int)(((byte)(106)))));
-            this.panel2.Location = new System.Drawing.Point(11, 315);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(922, 10);
-            this.panel2.TabIndex = 5;
-            // 
-            // HashTypeComboBox
-            // 
-            this.HashTypeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HashTypeComboBox.FormattingEnabled = true;
-            this.HashTypeComboBox.Items.AddRange(new object[] {
-            "MD5",
-            "SHA1",
-            "SHA256",
-            "SHA384",
-            "SHA512",
-            "RIPEMD160"});
-            this.HashTypeComboBox.Location = new System.Drawing.Point(166, 260);
-            this.HashTypeComboBox.Name = "HashTypeComboBox";
-            this.HashTypeComboBox.Size = new System.Drawing.Size(199, 44);
-            this.HashTypeComboBox.TabIndex = 4;
-            // 
-            // ClearHashString
-            // 
-            this.ClearHashString.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearHashString.Location = new System.Drawing.Point(703, 162);
-            this.ClearHashString.Name = "ClearHashString";
-            this.ClearHashString.Size = new System.Drawing.Size(230, 75);
-            this.ClearHashString.TabIndex = 3;
-            this.ClearHashString.Text = "Clear";
-            this.ClearHashString.UseVisualStyleBackColor = true;
-            this.ClearHashString.Click += new System.EventHandler(this.ClearHashString_Click);
-            // 
-            // HashingButton
-            // 
-            this.HashingButton.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HashingButton.Location = new System.Drawing.Point(11, 162);
-            this.HashingButton.Name = "HashingButton";
-            this.HashingButton.Size = new System.Drawing.Size(230, 75);
-            this.HashingButton.TabIndex = 2;
-            this.HashingButton.Text = "Hash";
-            this.HashingButton.UseVisualStyleBackColor = true;
-            this.HashingButton.Click += new System.EventHandler(this.HashingButton_Click);
-            // 
-            // TextToBeHashed
-            // 
-            this.TextToBeHashed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.TextToBeHashed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextToBeHashed.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextToBeHashed.Font = new System.Drawing.Font("Malgun Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextToBeHashed.Location = new System.Drawing.Point(11, 59);
-            this.TextToBeHashed.Name = "TextToBeHashed";
-            this.TextToBeHashed.Size = new System.Drawing.Size(922, 96);
-            this.TextToBeHashed.TabIndex = 1;
-            this.TextToBeHashed.Text = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(303, 41);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Text to be Hashed: ";
-            // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
@@ -800,6 +794,16 @@ namespace SunriseEncryption
             this.VerticalDivider.Size = new System.Drawing.Size(10, 660);
             this.VerticalDivider.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(201, 135);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -807,6 +811,7 @@ namespace SunriseEncryption
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1257, 826);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.VerticalDivider);
             this.Controls.Add(this.HorizontalDivider);
             this.Controls.Add(this.SidePanel);
@@ -817,18 +822,21 @@ namespace SunriseEncryption
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sunrise Encryption";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.HomePagePanel.ResumeLayout(false);
+            this.HomePagePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.HashingPagePanel.ResumeLayout(false);
+            this.HashingPagePanel.PerformLayout();
             this.EncryptionPagePanel.ResumeLayout(false);
             this.EncryptionPagePanel.PerformLayout();
             this.SettingsPagePanel.ResumeLayout(false);
             this.SettingsPagePanel.PerformLayout();
             this.PluginPagePanel.ResumeLayout(false);
             this.PluginPagePanel.PerformLayout();
-            this.HomePagePanel.ResumeLayout(false);
-            this.HomePagePanel.PerformLayout();
-            this.HashingPagePanel.ResumeLayout(false);
-            this.HashingPagePanel.PerformLayout();
             this.SidePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -894,9 +902,9 @@ namespace SunriseEncryption
         private System.Windows.Forms.CheckBox IncludePluginInfoCheckbox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button ReloadPluginList;
-        private System.Windows.Forms.TextBox AESKeyTextbox;
-        private System.Windows.Forms.Label AESKeyLabel;
         private System.Windows.Forms.Label EncryptionInstructionLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
